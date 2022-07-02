@@ -20,7 +20,6 @@ if ( isset( $_POST['submit'] ) ) {
 
     // if no image, set to null
     if ( $image['size'] == 0 ) {
-      
       $query = "INSERT INTO about 
       ( title, image, content )
       VALUES

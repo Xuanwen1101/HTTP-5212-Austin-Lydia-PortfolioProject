@@ -11,13 +11,16 @@
 
   // log the email
   echo $email;
-
+  
+    $record = mysqli_fetch_assoc( $result );
+    
     // send an email to the email inserted in the form
     $to = $email;
     $subject = 'Test Email';
     $message = $name . '<br> Your message: ' . $message;
-    $headers = 'From: austin.caron1@gmail.com' . "\r\n";
-    $headers .= "MIME-Version: 1.0 \r\n";
+    $headers = 'From: ' . $record['email'];
+
+    $headers .= "MIME-Version: 1.0\n";
     $headers .= "Content-type: text/html; charset=us-ascii\n"; 
 
     mail( $to, $subject, $message, $headers );

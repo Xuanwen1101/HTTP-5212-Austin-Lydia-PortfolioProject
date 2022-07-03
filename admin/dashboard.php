@@ -22,11 +22,6 @@ include( 'includes/header.php' );
     </a>
   </li>
   <li>
-    <a href="about.php">
-      Manage About
-    </a>
-  </li>
-  <li>
     <a href="logout.php">
       Logout
     </a>

@@ -9,12 +9,15 @@
   $message = $_POST['message'];
 
 
-  ini_set( 'display_errors', 1 );
-    error_reporting( E_ALL );
-    $from = "emailtest@YOURDOMAIN";
-    $to = "austin.caron1@gmail.com";
-    $subject = "PHP Mail Test script";
-    $message = "This is a test to check the PHP Mail functionality";
-    $headers = "From:" . $from;
-    mail($to,$subject,$message, $headers);
-    echo "Test email sent";
+  // log the email
+  echo $email;
+
+    // send an email to the email inserted in the form
+    $to = $email;
+    $subject = 'Test Email';
+    $message = $name . '<br> Your message: ' . $message;
+    $headers = 'From: austin.caron1@gmail.com' . "\r\n";
+    $headers .= "MIME-Version: 1.0 \r\n";
+    $headers .= "Content-type: text/html; charset=us-ascii\n"; 
+
+    mail( $to, $subject, $message, $headers );

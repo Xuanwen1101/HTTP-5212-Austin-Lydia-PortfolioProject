@@ -17,13 +17,13 @@ if( isset( $_POST['first'] ) )
         last,
         email,
         password,
-        active
+        status
       ) VALUES (
         "'.mysqli_real_escape_string( $connect, $_POST['first'] ).'",
         "'.mysqli_real_escape_string( $connect, $_POST['last'] ).'",
         "'.mysqli_real_escape_string( $connect, $_POST['email'] ).'",
         "'.md5( $_POST['password'] ).'",
-        "'.$_POST['active'].'"
+        "'.$_POST['status'].'"
       )';
     mysqli_query( $connect, $query );
     

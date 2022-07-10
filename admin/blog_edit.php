@@ -8,55 +8,39 @@
   if( !isset( $_GET['id'] ) )
   {
     
-    header( 'Location: about.php' );
+    header( 'Location: blog.php' );
     die();
   }
 
   if( isset( $_POST['submit'] ) ) {
     if( !empty( $_POST['content'] ) ) {
       $title = $_POST['title'];
-      $image = $_FILES['image'];
       $content = $_POST['content'];
 
-      // set the image type
-      $type = $image['type'];
-      $type = explode( '/', $type );
-      $type = $type[1];
-
-      // if no image, update everything else
-      if( $image['size'] == 0 ) {
-        $query = "UPDATE about 
+      $query = "UPDATE blog 
         SET title = '$title',
         content = '$content'
         WHERE id = ".$_GET['id']."
         LIMIT 1";
-      } else {
-        $query = "UPDATE about 
-        SET title = '$title',
-        image = 'data:image/$type;base64,".base64_encode( file_get_contents( $image['tmp_name'] ) )."',
-        content = '$content'
-        WHERE id = ".$_GET['id']."
-        LIMIT 1";
-      }
       
       $result = mysqli_query( $connect, $query );
       if( $result ) {
-        set_message( 'About content has been updated' );
-        header( 'Location: about.php' );
+        set_message( 'blog content has been updated' );
+        header( 'Location: blog.php' );
       } else {
-        set_message("Error updating about content!");
+        set_message("Error updating blog content!");
       }
     } else {
       set_message("Please fill in the Content field!");
     }
-    // Redirect to about page
+    // Redirect to blog page
     die();
   }
 
   if( isset($_GET['id'] ) ) {
-    // Get the about content from the database
+    // Get the blog content from the database
     $query = 'SELECT *
-      FROM about
+      FROM blog
       WHERE id = '.$_GET['id'].'
       LIMIT 1';
 
@@ -69,16 +53,16 @@
 
   ?>
 
-  <h2>Edit About Content</h2>
-  <form action="about_edit.php?id=<?php echo $_GET['id']; ?>" method="post" enctype="multipart/form-data">
+  <h2>Edit blog Content</h2>
+  <form action="blog_edit.php?id=<?php echo $_GET['id']; ?>" method="post" enctype="multipart/form-data">
     <div>
       <label for="title">Title:</label>
       <input type="text" name="title" id="title" value="<?php echo $record['title']; ?>" />
     </div>
     <div>
-      <img src="<?php echo $record['image'] ?>" alt="">
-      <label for="image">Image:</label>
-      <input type="file" name="image" id="image"/>
+      <img src="<?php echo $record['photo'] ?>" alt="">
+      <label for="photo">photo:</label>
+      <input type="file" name="photo" id="photo"/>
     </div>
     <div>
       <label for="content">Content:</label>

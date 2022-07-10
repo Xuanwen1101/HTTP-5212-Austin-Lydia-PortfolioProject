@@ -6,29 +6,28 @@ include( 'includes/functions.php' );
 
 secure();
 
-// Add new skill content using data from form
+// Add new blog content using data from form
 if ( isset( $_POST['submit'] ) ) {
-  if (!empty( $_POST['title'] ) ) {
+  if (!empty( $_POST['content'] ) ) {
     $title = $_POST['title'];
     $content = $_POST['content'];
 
-    // if no icon, set to null
-    $query = "INSERT INTO skills 
-      ( title, icon, content )
+    $query = "INSERT INTO blog 
+      ( title, photo, content )
       VALUES
       ( '$title', NULL, '$content' )";
       
     $result = mysqli_query( $connect, $query );
     if ( $result ) {
-      set_message( 'Skills have been added' );
-      header( 'Location: skills.php' );
+      set_message( 'blog content has been added' );
+      header( 'Location: blog.php' );
     } else {
-      echo '<div class="alert alert-danger">Error adding new skill!</div>';
+      echo '<div class="alert alert-danger">Error adding blog content!</div>';
     }
   } else {
     echo '<div class="alert alert-danger">Please fill in the Content field!</div>';
   }
-  // Redirect to skills page
+  // Redirect to blog page
   die();
 }
 
@@ -36,10 +35,10 @@ include( 'includes/header.php' );
 
 ?>
 
-<h2>Add New Skill</h2>
+<h2>Add blog Content</h2>
 
-<!-- form for uploading skills. containing title and content -->
-<form action="skills_add.php" method="post" enctype="multipart/form-data">
+<!-- form for uploading blog content. containing title and content -->
+<form action="blog_add.php" method="post" enctype="multipart/form-data">
   <div>
     <label for="title">Title:</label>
     <input type="text" name="title" id="title" />
@@ -59,11 +58,11 @@ include( 'includes/header.php' );
     </script>
   </div>
   <div>
-    <input type="submit" name="submit" value="Add New Skill" />
+    <input type="submit" name="submit" value="Add blog Content" />
   </div>
 </form>
 
-<p><a href="skills.php"><i class="fas fa-arrow-circle-left"></i> Return to Skills</a></p>
+<p><a href="blog.php"><i class="fas fa-arrow-circle-left"></i> Return to blog Content</a></p>
 
 
 <?php

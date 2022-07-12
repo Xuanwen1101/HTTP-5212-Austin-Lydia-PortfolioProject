@@ -13,8 +13,12 @@ include( 'admin/includes/functions.php' );
   <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
   
   <title>Website Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   
-  <link href="styles.css" type="text/css" rel="stylesheet">
+  <link href="/css/reset.css" type="text/css" rel="stylesheet">
+  <link href="/css/main.css" type="text/css" rel="stylesheet">
   
   <script src="https://cdn.ckeditor.com/ckeditor5/12.4.0/classic/ckeditor.js"></script>
   

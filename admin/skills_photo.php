@@ -9,7 +9,7 @@ secure();
 if( !isset( $_GET['id'] ) )
 {
   
-  header( 'Location: projects.php' );
+  header( 'Location: skills.php' );
   die();
   
 }
@@ -37,7 +37,7 @@ if( isset( $_FILES['photo'] ) )
           break;      
       }
 
-      $query = 'UPDATE projects SET
+      $query = 'UPDATE skills SET
         photo = "data:image/'.$type.';base64,'.base64_encode( file_get_contents( $_FILES['photo']['tmp_name'] ) ).'"
         WHERE id = '.$_GET['id'].'
         LIMIT 1';
@@ -47,9 +47,9 @@ if( isset( $_FILES['photo'] ) )
     
   }
   
-  set_message( 'Project photo has been updated' );
+  set_message( 'Skill icon has been updated' );
 
-  header( 'Location: projects.php' );
+  header( 'Location: skills.php' );
   die();
   
 }
@@ -61,21 +61,21 @@ if( isset( $_GET['id'] ) )
   if( isset( $_GET['delete'] ) )
   {
     
-    $query = 'UPDATE projects SET
+    $query = 'UPDATE skills SET
       photo = ""
       WHERE id = '.$_GET['id'].'
       LIMIT 1';
     $result = mysqli_query( $connect, $query );
     
-    set_message( 'Project photo has been deleted' );
+    set_message( 'Skill icon has been deleted' );
     
-    header( 'Location: projects.php' );
+    header( 'Location: skills.php' );
     die();
     
   }
   
   $query = 'SELECT *
-    FROM projects
+    FROM skills
     WHERE id = '.$_GET['id'].'
     LIMIT 1';
   $result = mysqli_query( $connect, $query );
@@ -83,7 +83,7 @@ if( isset( $_GET['id'] ) )
   if( !mysqli_num_rows( $result ) )
   {
     
-    header( 'Location: projects.php' );
+    header( 'Location: skills.php' );
     die();
     
   }
@@ -98,9 +98,7 @@ include 'includes/wideimage/WideImage.php';
 
 ?>
 
-<h2>Edit Project</h2>
-
-<img src="" id="imgPreview" alt="">
+<h2>Edit Skill</h2>
 
 <p>
   Note: For best results, photos should be approximately 800 x 800 pixels.
@@ -109,17 +107,14 @@ include 'includes/wideimage/WideImage.php';
 <?php if( $record['photo'] ): ?>
 
   <?php
-  echo $record['photo'];
 
   $data = base64_decode( explode( ',', $record['photo'] )[1] );
-  // use WideImage to load the image from the data
-  $image = WideImage::loadFromString( $data );
-  // resize the image to a square of 200x200 pixels
-  $image = $image->resize( 200, 200, 'fill' );
+  $img = WideImage::loadFromString( $data );
+  $data = $img->resize( 200, 200, 'outside' )->crop( 'center', 'center', 200, 200 )->asString( 'jpg', 70 );
 
   ?>
   <p><img src="data:image/jpg;base64,<?php echo base64_encode( $data ); ?>" width="200" height="200"></p>
-  <p><a href="projects_photo.php?id=<?php echo $_GET['id']; ?>&delete"><i class="fas fa-trash-alt"></i> Delete this Photo</a></p>
+  <p><a href="skills_photo.php?id=<?php echo $_GET['id']; ?>&delete"><i class="fas fa-trash-alt"></i> Delete this Photo</a></p>
 
 <?php endif; ?>
 
@@ -134,7 +129,7 @@ include 'includes/wideimage/WideImage.php';
   
 </form>
 
-<p><a href="projects.php"><i class="fas fa-arrow-circle-left"></i> Return to Project List</a></p>
+<p><a href="skills.php"><i class="fas fa-arrow-circle-left"></i> Return to Skills List</a></p>
 
 
 <?php
@@ -142,13 +137,3 @@ include 'includes/wideimage/WideImage.php';
 include( 'includes/footer.php' );
 
 ?>
-
-<script>
-  let image = document.querySelector("#photo")
-  image.onchange = evt => {
-    const [file] = image.files;
-    if(file) {
-      imgPreview.src = URL.createObjectURL(file);
-    }
-  }
-</script>

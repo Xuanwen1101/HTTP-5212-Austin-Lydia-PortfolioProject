@@ -9,40 +9,43 @@ secure();
 if( isset( $_GET['delete'] ) )
 {
   
-  $query = 'DELETE FROM about
+  $query = 'DELETE FROM blog
     WHERE id = '.$_GET['delete'].'
     LIMIT 1';
   mysqli_query( $connect, $query );
     
   set_message( 'content has been deleted' );
   
-  header( 'Location: about.php' );
+  header( 'Location: blog.php' );
   die();
   
 }
 
 include( 'includes/header.php' );
 
-$query = 'SELECT * FROM about';
+$query = 'SELECT * FROM blog';
 $result = mysqli_query( $connect, $query );
 ?>
 
-<h2>Manage About Content</h2>
+<h2>Manage blog Content</h2>
 
 <div>
-  <!-- loop through the about content -->
+  <!-- loop through the blog content -->
   <?php while( $row = mysqli_fetch_assoc( $result ) ) : ?>
     <div>
       <h3><?php echo $row['title']; ?></h3>
-      <img src="<?php echo $row['image']; ?>" alt="<?php echo $row['title']; ?>" />
+      <img src="<?php echo $row['photo']; ?>" alt="<?php echo $row['title']; ?>" />
       <p><?php echo $row['content']; ?></p>
-      <a href="about_edit.php?id=<?php echo $row['id']; ?>">Edit</a>
-      <a href="about.php?delete=<?php echo $row['id']; ?>">Delete</a>
+      <div>
+        <a href="blog_photo.php?id=<?php echo $row['id']; ?>">Photo</a>
+        <a href="blog_edit.php?id=<?php echo $row['id']; ?>">Edit</a>
+        <a href="blog.php?delete=<?php echo $row['id']; ?>">Delete</a>
+      </div>
     </div>
   <?php endwhile; ?>
 </div>
 
-<p><a href="about_add.php"><i class="fas fa-plus-square"></i> Add About Content</a></p>
+<p><a href="blog_add.php"><i class="fas fa-plus-square"></i> Add blog Content</a></p>
 
 
 <?php

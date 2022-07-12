@@ -62,7 +62,11 @@ html {
   display: flex;
   align-items: center;
 }
+/* End of dashboard */
 
+
+
+/* Start of media queries */
 @media screen and (min-width: 768px) {
   .dashboard__container {
     position: absolute;
@@ -99,5 +103,10 @@ html {
     margin-right: 30px;
   }
 
-  .dashboard__user { font-size: 40px; }
+  .dashboard__user { 
+    font-size: 48px; 
+    margin-top: 40px;
+  }
 }
+
+/* End of media queries */

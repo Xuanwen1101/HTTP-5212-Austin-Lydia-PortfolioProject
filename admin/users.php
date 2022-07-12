@@ -23,31 +23,31 @@ if( isset( $_GET['delete'] ) )
 
 include( 'includes/header.php' );
 
-$query = 'SELECT *
-  FROM users';
+$query = 'SELECT * FROM users';
 $result = mysqli_query( $connect, $query );
 
 ?>
 <section class="users">
-<h2>Manage Users</h2>
+<h2 class="users__title">Manage Users</h2>
   <div class="users__container">
     <?php while( $record = mysqli_fetch_assoc( $result ) ): ?>
       <div class="users__card">
         <div class="users__text">
-          <span class="user__id">ID: <?php echo $record['id'] ?></span>
-          <h2 class="user__name"><?php echo $record['first'] . ' ' . $record['last'] ?></h2>
-          <h3 class="user__email"><?php echo $record['email'] ?></h3>
+          <span class="users__id">ID: <?php echo $record['id'] ?></span>
+          <h2 class="users__name"><?php echo $record['first'] . ' ' . $record['last'] ?></h2>
+          <h3 class="users__email"><?php echo $record['email'] ?></h3>
         </div>
-        <div class="user__functions">
-          <!-- add users_edit.php -->
+        <div class="users__functions">
           <a href="users_edit.php?id=<?php echo $record['id'] ?>">Edit</a>
           <a href="users.php?delete=<?php echo $record['id'] ?>" class="user__delete">Delete</a>
         </div>
       </div>
     <?php endwhile; ?>
   </div>
+  <div class="users__add">
+    <a href="users_add.php">Add User</a>
+  </div>
 </section>
-<p><a href="users_add.php"><i class="fas fa-plus-square"></i> Add User</a></p>
 
 
 <?php

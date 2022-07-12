@@ -65,6 +65,96 @@ html {
 /* End of dashboard */
 
 
+/* Start of User Accounts */
+.users__title {
+  font-family: var(--heading-font);
+  font-weight: bold;
+  color: var(--font-color-main);
+  font-size: 32px;
+  text-transform: capitalize;
+  margin: 25px;
+}
+
+.users__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+  width: 85%;
+  max-width: 900px;
+  margin: 40px auto 0 auto;
+}
+
+.users__card {
+  background: var(--card-color);
+  box-shadow: var(--card-shadow);
+  border-radius: var(--border-radius);
+  color: var(--font-color-main);
+  padding: 1.8rem 1.2rem;
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.users__id, .users__name {
+  font-family: var(--heading-font);
+  font-weight: bold;
+}
+
+.users__id {
+  font-size: 20px;
+}
+
+.users__name {
+  font-size: 30px;
+  margin: 16px 0 10px 0;
+}
+
+.users__email {
+  font-family: var(--body-font);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.users__functions {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 9px;
+  font-family: var(--heading-font);
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.users__functions a { text-decoration: none; }
+
+/* first child of users__functions has variable color */
+.users__functions > *:first-child {
+  color: var(--font-color-main);
+}
+
+/* last child has color of FB5757 */
+.users__functions > *:last-child {
+  color: #FB5757;
+}
+
+.users__add {
+  text-align: center;
+  font-family: var(--heading-font);
+  font-weight: bold;
+  font-size: 24px;
+  margin-top: 40px;
+}
+
+.users__add a { 
+  text-decoration: none;
+  color: var(--font-color-main);
+  border-bottom: solid 4px var(--font-color-main);
+}
+
+/* End of User Accounts */
 
 /* Start of media queries */
 @media screen and (min-width: 768px) {

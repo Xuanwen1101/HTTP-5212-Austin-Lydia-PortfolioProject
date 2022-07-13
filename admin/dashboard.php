@@ -11,14 +11,14 @@ include( 'includes/header.php' );
 ?>
 
 <section id="dashboard">
-  <h1 class="dashboard__user">Hello, <?php 
+  <h2 class="dashboard__user">Hello, <?php 
     // get the logged in user first name based on the session email
     $user = $_SESSION['email'];
     $sql = "SELECT first FROM users WHERE email = '$user'";
     $result = mysqli_query($connect, $sql);
     $row = mysqli_fetch_assoc($result);
     echo $row['first'];
-  ?>!</h1>
+  ?>!</h2>
   <ul class="dashboard__container">
     <li class="dashboard__link">
       <a href="projects.php">  

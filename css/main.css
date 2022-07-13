@@ -80,8 +80,8 @@ html {
   flex-direction: column;
   justify-content: center;
   gap: 40px;
-  width: 85%;
-  max-width: 900px;
+  width: 90%;
+  max-width: 850px;
   margin: 40px auto 0 auto;
 }
 
@@ -197,6 +197,23 @@ html {
     font-size: 48px; 
     margin-top: 40px;
   }
+
+  .users__card {
+    padding: 3rem;
+  }
+
+  .users__id {
+    font-size: 28px;
+  }
+
+  .users__name {
+    font-size: 40px;
+    margin-top: 26px;
+  }
+
+  .users__email { font-size: 16px; }
+
+  .users__functions { font-size: 22px; }
 }
 
 /* End of media queries */

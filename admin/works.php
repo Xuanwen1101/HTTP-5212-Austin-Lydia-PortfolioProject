@@ -32,47 +32,57 @@ $result = mysqli_query( $connect, $query );
 
 <h2>Manage Work Experience</h2>
 
-<table>
-  <tr>
-    <th></th>
-    <th align="center">ID</th>
-    <th align="left">Title</th>
-    <th align="left">Description</th>
-    <th align="center">Date</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-  <?php while( $record = mysqli_fetch_assoc( $result ) ): ?>
-    <tr>
-      <td align="center">
-        <img src="image.php?type=work&id=<?php echo $record['id']; ?>&width=300&height=300&format=inside">
-      </td>
-      <td align="center"><?php echo $record['id']; ?></td>
-      <td align="left">
-        <?php echo htmlentities( $record['title'] ); ?>
-        <br>
-        <small><?php echo $record['employment_type']; ?></small>
-        <br>
-        <small><?php echo $record['company_name']; ?></small>
-        <br>
-        <small><?php echo $record['location']; ?></small>
-      </td>
-      <td align="left"><small><?php echo $record['description']; ?></small></td>
-      <td align="center" style="white-space: nowrap;">
-        <p>Start Date: <?php echo htmlentities( $record['start_date'] ); ?></p>
-        <p>End Date: <?php echo htmlentities( $record['end_date'] ); ?></p>
-      </td>
-      <td align="center"><a href="works_photo.php?id=<?php echo $record['id']; ?>">Photo</i></a></td>
-      <td align="center"><a href="works_edit.php?id=<?php echo $record['id']; ?>">Edit</i></a></td>
-      <td align="center">
-        <a href="works.php?delete=<?php echo $record['id']; ?>" onclick="javascript:confirm('Are you sure you want to delete this experience?');">Delete</i></a>
-      </td>
-    </tr>
-  <?php endwhile; ?>
-</table>
+<h2 class="title">Manage Work Experience</h2>
 
-<p><a href="works_add.php"><i class="fas fa-plus-square"></i> Add Experience</a></p>
+
+<div class="objects-container">
+
+  <!-- use while loop to get each row data from the selected table -->
+  <?php while ($record = mysqli_fetch_assoc($result)) : ?>
+
+    <div class="object-item">
+
+
+      <?php if ($record['id']) : ?>
+
+        <img src="image.php?type=work&id=<?php echo $record['id']; ?>&width=250&height=250">
+
+      <?php endif; ?>
+
+      <?php if ($record['company_name']) : ?>
+
+        <h2 class="object-title"><?= $record['company_name'] ?></h2>
+
+      <?php endif; ?>
+
+      <?php if ($record['title']) : ?>
+
+        <h2 class="secondary-title"><?= $record['title'] ?></h2>
+
+      <?php endif; ?>
+
+
+      <div id="object-edit">
+
+        <ul class="edit__list">
+          <li class="edit__link"><a href="works_photo.php?id=<?php echo $record['id']; ?>">Photo</i></a>
+          </li>
+          <li class="edit__link"><a href="works_edit.php?id=<?php echo $record['id']; ?>">Edit</i></a>
+          </li>
+          <li class="delete__link"><a href="works.php?delete=<?php echo $record['id']; ?>" onclick="javascript:confirm('Are you sure you want to delete this work?');">Delete</i></a></li>
+        </ul>
+      </div>
+
+
+    </div>
+
+  <?php endwhile; ?>
+
+</div>
+
+<div class="add">
+  <a href="works_add.php"><i class="fas fa-plus-square"></i> New Experience +</a>
+</div>
 
 
 <?php

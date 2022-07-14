@@ -30,38 +30,51 @@ $result = mysqli_query( $connect, $query );
 
 ?>
 
-<h2>Manage Text Contents</h2>
 
-<table>
-  <tr>
-    <th></th>
-    <th align="center">ID</th>
-    <th align="left">Title</th>
-    <th align="left">Content</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-  <?php while( $record = mysqli_fetch_assoc( $result ) ): ?>
-    <tr>
-      <td align="center">
-        <img src="image.php?type=content&id=<?php echo $record['id']; ?>&width=300&height=300&format=inside">
-      </td>
-      <td align="center"><?php echo $record['id']; ?></td>
-      <td align="left">
-        <?php echo htmlentities( $record['title'] ); ?>
-      </td>
-      <td align="left"><small><?php echo $record['content']; ?></small></td>
-      <td align="center"><a href="contents_photo.php?id=<?php echo $record['id']; ?>">Photo</i></a></td>
-      <td align="center"><a href="contents_edit.php?id=<?php echo $record['id']; ?>">Edit</i></a></td>
-      <td align="center">
-        <a href="contents.php?delete=<?php echo $record['id']; ?>" onclick="javascript:confirm('Are you sure you want to delete this content?');">Delete</i></a>
-      </td>
-    </tr>
+<h2 class="title">Manage Text Contents</h2>
+
+<div class="objects-container">
+
+  <!-- use while loop to get each row data from the selected table -->
+  <?php while ($record = mysqli_fetch_assoc($result)) : ?>
+
+    <div class="object-item">
+
+
+      <?php if ($record['id']) : ?>
+
+        <img src="image.php?type=content&id=<?php echo $record['id']; ?>&width=250&height=250">
+
+      <?php endif; ?>
+
+      <?php if ($record['title']) : ?>
+
+        <h2 class="object-title"><?= $record['title'] ?></h2>
+
+      <?php endif; ?>
+
+
+      <div id="object-edit">
+
+        <ul class="edit__list">
+          <li class="edit__link"><a href="contents_photo.php?id=<?php echo $record['id']; ?>">Photo</i></a>
+          </li>
+          <li class="edit__link"><a href="contents_edit.php?id=<?php echo $record['id']; ?>">Edit</i></a>
+          </li>
+          <li class="delete__link"><a href="contents.php?delete=<?php echo $record['id']; ?>" onclick="javascript:confirm('Are you sure you want to delete this content?');">Delete</i></a></li>
+        </ul>
+      </div>
+
+
+    </div>
+
   <?php endwhile; ?>
-</table>
 
-<p><a href="contents_add.php"><i class="fas fa-plus-square"></i> Add Content</a></p>
+</div>
+
+<div class="add">
+  <a href="contents_add.php"><i class="fas fa-plus-square"></i> New Content +</a>
+</div>
 
 
 <?php

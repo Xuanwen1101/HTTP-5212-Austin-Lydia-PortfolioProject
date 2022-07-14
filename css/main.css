@@ -8,6 +8,7 @@
   --card-color: #FCFCFC;
   --card-shadow: 0px 4px 10px rgba(111, 128, 143, 0.49);
   --border-radius: 16px;
+  --delete-color: #e10505;
 }
 
 html {
@@ -155,6 +156,130 @@ html {
 }
 
 /* End of User Accounts */
+
+
+/* Start of Object Item */
+
+
+.title-container {
+  display: flex; 
+  flex-flow: row wrap;
+  gap: 1em;
+  margin: 2em 3em;
+}
+
+.title {
+  font-family: var(--heading-font);
+  font-weight: bold;
+  color: var(--font-color-main);
+  font-size: 32px;
+  text-transform: capitalize;
+  margin: 25px;
+}
+
+.objects-container {
+  display: flex; 
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 1em;
+  margin: 2em auto;
+}
+
+.object-item {
+  font-weight: bold;
+  flex:1 0 22%;
+  align-items: center;
+  background-color: var(--card-color);
+  box-shadow: var(--card-shadow);
+  border-radius: var(--border-radius);
+  padding: 2em 2em;
+  box-sizing: border-box;
+  width: 90%;
+  max-width: 320px;
+}
+
+.object-title {
+  font-family: var(--heading-font);
+  font-weight: bold;
+  color: var(--font-color-main);
+  font-size: 1.5em;
+  text-transform: capitalize;
+  margin-top: 0.5em;
+}
+
+.secondary-title {
+  font-family: var(--heading-font);
+  font-weight: bold;
+  color: var(--font-color-secondary);
+  font-size: 1.25em;
+  text-transform: capitalize;
+  margin-top: 0.5em;
+}
+
+
+#object-edit {
+  text-align: end;
+}
+
+.edit__list {
+  padding: 0;
+  text-decoration: none;
+}
+
+.edit__link {
+  display: inline-block; 
+  list-style-type: none; 
+  vertical-align: top; 
+  position: relative; 
+  margin-right: 1em;
+  margin-top: 2em;
+}
+
+.edit__link a {
+  text-decoration: none;
+  color: var(--font-color-main);
+  font-family: var(--body-font);
+}
+
+.delete__link {
+  display: inline-block; 
+  list-style-type: none; 
+  vertical-align: top; 
+  position: relative; 
+  margin-top: 2em;
+}
+
+.delete__link a {
+  text-decoration: none;
+  color: var(--delete-color);
+  font-family: var(--body-font);
+}
+
+
+.add {
+  text-align: center;
+  font-family: var(--heading-font);
+  font-weight: bold;
+  font-size: 24px;
+  margin-top: 40px;
+}
+
+.add a { 
+  text-decoration: none;
+  color: var(--font-color-main);
+  border-bottom: solid 4px var(--font-color-main);
+}
+
+/* End of Object Item */
+
+
+
+/* Start of Education */
+
+
+
+/* End of Education */
+
 
 /* Start of media queries */
 @media screen and (min-width: 768px) {

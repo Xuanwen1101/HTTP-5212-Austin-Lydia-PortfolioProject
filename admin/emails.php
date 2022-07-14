@@ -9,7 +9,7 @@ secure();
 if( isset( $_GET['delete'] ) )
 {
   
-  $query = 'DELETE FROM messages
+  $query = 'DELETE FROM emails
     WHERE id = '.$_GET['delete'].'
     LIMIT 1';
   mysqli_query( $connect, $query );
@@ -23,7 +23,7 @@ if( isset( $_GET['delete'] ) )
 
 include( 'includes/header.php' );
 
-$query = 'SELECT * FROM messages';
+$query = 'SELECT * FROM emails';
 $result = mysqli_query( $connect, $query );
 ?>
 

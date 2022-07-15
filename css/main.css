@@ -68,22 +68,13 @@ html {
 
 
 /* Start of User Accounts */
-.users__title {
-  font-family: var(--heading-font);
-  font-weight: bold;
-  color: var(--font-color-main);
-  font-size: 32px;
-  text-transform: capitalize;
-  margin: 25px;
-}
-
 .users__container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 40px;
-  width: 85%;
-  max-width: 900px;
+  width: 90%;
+  max-width: 850px;
   margin: 40px auto 0 auto;
 }
 
@@ -276,6 +267,21 @@ html {
 
 
 /* Start of Form */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 38px;
+  justify-content: center;
+  width: 90%;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
 
 .form__label {
   font-family: var(--heading-font);
@@ -283,21 +289,20 @@ html {
   color: var(--font-color-main);
   font-size: 1.5em;
   text-transform: capitalize;
-  margin-top: 0.5em;
 }
 
 .form__input {
   font-family: var(--body-font);
   color: var(--font-color-main);
   font-size: 1em;
-	margin: 0.5em auto 1em;
-  padding: 1rem 2rem;
+  padding: 1.2rem;
   background-color: var(--card-color);
   border: none;
-  width: 90%;
+  box-sizing: border-box;
   display: block;
   box-shadow: var(--card-shadow);
   border-radius: var(--border-radius);
+  width: 100%;
 }
 
 .form__select {
@@ -305,10 +310,10 @@ html {
   color: var(--font-color-main);
   font-size: 1em;
 	margin: 0.5em auto 1em;
-  padding: 1rem 2rem;
+  padding: 1.2rem;
   background-color: var(--card-color);
   border: none;
-  width: 102%;
+  width: 100%;
   display: block;
   box-shadow: var(--card-shadow);
   border-radius: var(--border-radius);
@@ -337,7 +342,7 @@ html {
 
 
 .form__textarea {
-  padding: 1rem 2rem;
+  padding: 1.2;
   width: 90%;
   max-width: 90%;
   line-height: 1.25;
@@ -348,17 +353,36 @@ html {
   overflow: auto;
 }
 
-/* .ck, .ck-editor__main {
-  padding: 1rem 2rem;
-  width: 90%;
-  max-width: 90%;
+.ck-editor__main {
+  font-family: var(--body-font);
+  height: 300px;
+}
+
+.ck-toolbar {
+  background-color: var(--card-color);
+  border-radius: var(--border-radius) !important;
+  box-shadow: var(--card-shadow);
+  margin-bottom: 0.8rem !important;
+  padding: 0.4rem !important;
+}
+
+.ck.ck-editor__main>.ck-editor__editable:not(.ck-focused) {
+  padding: 1.2rem;
+  width: 100%;
   line-height: 1.25;
   box-shadow: var(--card-shadow);
-  border-radius: var(--border-radius);
   border: none;
-  margin: 0.5em auto 1em;
+  margin: 0 auto;
   overflow: auto;
-} */
+  box-sizing: border-box;
+  font-family: var(--body-font);
+}
+
+.ck-editor__editable {
+  height: 300px !important;
+  border-radius: var(--border-radius) !important;
+  background-color: var(--card-color) !important;
+}
 
 .form__button {
   font-family: var(--body-font);
@@ -400,6 +424,18 @@ html {
 }
 
 /* End of Form */
+
+/* Start of Contact */
+
+.contact__wrapper {
+  width: 85%;
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* End of Contact */
 
 
 /* Start of media queries */
@@ -443,6 +479,23 @@ html {
     font-size: 48px; 
     margin-top: 40px;
   }
+
+  .users__card {
+    padding: 3rem;
+  }
+
+  .users__id {
+    font-size: 28px;
+  }
+
+  .users__name {
+    font-size: 40px;
+    margin-top: 26px;
+  }
+
+  .users__email { font-size: 16px; }
+
+  .users__functions { font-size: 22px; }
 }
 
 /* End of media queries */

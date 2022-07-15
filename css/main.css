@@ -67,15 +67,6 @@ html {
 
 
 /* Start of User Accounts */
-.users__title {
-  font-family: var(--heading-font);
-  font-weight: bold;
-  color: var(--font-color-main);
-  font-size: 32px;
-  text-transform: capitalize;
-  margin: 25px;
-}
-
 .users__container {
   display: flex;
   flex-direction: column;
@@ -279,6 +270,18 @@ html {
 
 
 /* End of Education */
+
+/* Start of Contact */
+
+.contact__wrapper {
+  width: 85%;
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* End of Contact */
 
 
 /* Start of media queries */

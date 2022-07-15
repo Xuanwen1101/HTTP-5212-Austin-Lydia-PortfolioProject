@@ -28,7 +28,7 @@ $result = mysqli_query( $connect, $query );
 ?>
 
 <section class="contact">
-  <h2>Your Emails</h2>
+  <h2 class="title">Your Emails</h2>
   <div class="contact__wrapper">
     <!-- loop through the skills content -->
     <?php while( $row = mysqli_fetch_assoc( $result ) ) : ?>

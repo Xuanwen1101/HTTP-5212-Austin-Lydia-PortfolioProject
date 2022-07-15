@@ -39,56 +39,47 @@ include('includes/header.php');
 <h2 class="title">Add Project</h2>
 
 <div class="objects-container">
-  <form method="post">
+  <form method="post" class="form">
+    <div class="form__field">
+      <label class="form__label" for="title">Title:</label>
+      <input class="form__input" type="text" name="title" id="title">
+    </div>
+    <div class="form__field">
+      <label class="form__label" for="url">URL:</label>
+      <input class="form__input" type="text" name="url" id="url">
+    </div>
+    <div class="form__field">
+      <label class="form__label" for="date">Date:</label>
+      <input class="form__input" type="date" name="date" id="date">
+    </div>
 
-    <label class="form__label" for="title">Title:</label>
-    <input class="form__input" type="text" name="title" id="title">
-
-    <br>
-
-    <label class="form__label" for="content">Content:</label>
-    <textarea class="form__textarea" type="text" name="content" id="content" rows="10"></textarea>
-
-    <script>
-      ClassicEditor
-        .create(document.querySelector('#content'))
-        .then(editor => {
-          console.log(editor);
-        })
-        .catch(error => {
-          console.error(error);
-        });
-    </script>
-
-    <br>
-
-    <label class="form__label" for="url">URL:</label>
-    <input class="form__input" type="text" name="url" id="url">
-
-    <br>
-
-    <label class="form__label" for="date">Date:</label>
-    <input class="form__input" type="date" name="date" id="date">
-
-    <br>
-
-    <label class="form__label" for="type">Type:</label>
-
-    <select class="form__select" name="type" id="type">
-      <?php
-      $values = array('Website', 'Graphic Design');
-
-      foreach ($values as $key => $value) {
-        echo '<option value="' . $value . '"';
-        echo '>' . $value . '</option>';
-      }
-      ?>
-    </select>
-
-    <br>
-
+    <div class="form__field">
+      <label class="form__label" for="type">Type:</label>
+      <select class="form__select" name="type" id="type">
+        <?php
+        $values = array('Website', 'Graphic Design');
+        foreach ($values as $key => $value) {
+          echo '<option value="' . $value . '"';
+          echo '>' . $value . '</option>';
+        }
+        ?>
+      </select>
+    </div>
+    <div class="form__field">
+      <label class="form__label" for="content">Content:</label>
+      <textarea class="form__textarea" type="text" name="content" id="content" rows="10"></textarea>
+      <script>
+        ClassicEditor
+          .create(document.querySelector('#content'))
+          .then(editor => {
+            console.log(editor);
+          })
+          .catch(error => {
+            console.error(error);
+          });
+      </script>
+    </div>
     <input class="form__button" type="submit" value="Add Project">
-
   </form>
 </div>
 

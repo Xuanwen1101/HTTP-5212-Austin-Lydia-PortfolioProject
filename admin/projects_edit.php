@@ -65,17 +65,18 @@ include( 'includes/header.php' );
 
 ?>
 
-<h2>Edit Project</h2>
+<h2 class="title">Edit Project</h2>
 
+<div class="objects-container">
 <form method="post">
   
-  <label for="title">Title:</label>
-  <input type="text" name="title" id="title" value="<?php echo htmlentities( $record['title'] ); ?>">
+  <label class="form__label" for="title">Title:</label>
+  <input class="form__input" type="text" name="title" id="title" value="<?php echo htmlentities( $record['title'] ); ?>">
     
   <br>
   
-  <label for="content">Content:</label>
-  <textarea type="text" name="content" id="content" rows="5"><?php echo htmlentities( $record['content'] ); ?></textarea>
+  <label class="form__label" for="content">Content:</label>
+  <textarea class="form__textarea" type="text" name="content" id="content" rows="5"><?php echo htmlentities( $record['content'] ); ?></textarea>
   
   <script>
 
@@ -92,39 +93,44 @@ include( 'includes/header.php' );
   
   <br>
   
-  <label for="url">URL:</label>
-  <input type="text" name="url" id="url" value="<?php echo htmlentities( $record['url'] ); ?>">
+  <label class="form__label" for="url">URL:</label>
+  <input class="form__input" type="text" name="url" id="url" value="<?php echo htmlentities( $record['url'] ); ?>">
     
   <br>
   
-  <label for="date">Date:</label>
-  <input type="date" name="date" id="date" value="<?php echo htmlentities( $record['date'] ); ?>">
+  <label class="form__label" for="date">Date:</label>
+  <input class="form__input" type="date" name="date" id="date" value="<?php echo htmlentities( $record['date'] ); ?>">
     
   <br>
   
-  <label for="type">Type:</label>
+  <label class="form__label" for="type">Type:</label>
+
+  <select class="form__select" name="type" id="type">
   <?php
   
   $values = array( 'Website', 'Graphic Design' );
   
-  echo '<select name="type" id="type">';
   foreach( $values as $key => $value )
   {
     echo '<option value="'.$value.'"';
     if( $value == $record['type'] ) echo ' selected="selected"';
     echo '>'.$value.'</option>';
   }
-  echo '</select>';
   
   ?>
+  </select>
   
   <br>
   
-  <input type="submit" value="Edit Project">
+  <input class="form__button" type="submit" value="Edit Project">
   
 </form>
 
-<p><a href="projects.php"><i class="fas fa-arrow-circle-left"></i> Return to Project List</a></p>
+</div>
+
+<div class="add">
+  <a href="projects.php"><i class="fas fa-arrow-circle-left"></i> Return to Project List</a>
+</div>
 
 
 <?php

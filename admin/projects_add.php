@@ -1,17 +1,15 @@
 <?php
 
-include( 'includes/database.php' );
-include( 'includes/config.php' );
-include( 'includes/functions.php' );
+include('includes/database.php');
+include('includes/config.php');
+include('includes/functions.php');
 
 secure();
 
-if( isset( $_POST['title'] ) )
-{
-  
-  if( $_POST['title'] and $_POST['content'] )
-  {
-    
+if (isset($_POST['title'])) {
+
+  if ($_POST['title'] and $_POST['content']) {
+
     $query = 'INSERT INTO projects (
         title,
         content,
@@ -19,90 +17,88 @@ if( isset( $_POST['title'] ) )
         type,
         url
       ) VALUES (
-         "'.mysqli_real_escape_string( $connect, $_POST['title'] ).'",
-         "'.mysqli_real_escape_string( $connect, $_POST['content'] ).'",
-         "'.mysqli_real_escape_string( $connect, $_POST['date'] ).'",
-         "'.mysqli_real_escape_string( $connect, $_POST['type'] ).'",
-         "'.mysqli_real_escape_string( $connect, $_POST['url'] ).'"
+         "' . mysqli_real_escape_string($connect, $_POST['title']) . '",
+         "' . mysqli_real_escape_string($connect, $_POST['content']) . '",
+         "' . mysqli_real_escape_string($connect, $_POST['date']) . '",
+         "' . mysqli_real_escape_string($connect, $_POST['type']) . '",
+         "' . mysqli_real_escape_string($connect, $_POST['url']) . '"
       )';
-    mysqli_query( $connect, $query );
-    
-    set_message( 'Project has been added' );
-    
+    mysqli_query($connect, $query);
+
+    set_message('Project has been added');
   }
-  
-  header( 'Location: projects.php' );
+
+  header('Location: projects.php');
   die();
-  
 }
 
-include( 'includes/header.php' );
+include('includes/header.php');
 
 ?>
 
-<h2>Add Project</h2>
+<h2 class="title">Add Project</h2>
 
-<form method="post">
-  
-  <label for="title">Title:</label>
-  <input type="text" name="title" id="title">
-    
-  <br>
-  
-  <label for="content">Content:</label>
-  <textarea type="text" name="content" id="content" rows="10"></textarea>
-      
-  <script>
+<div class="objects-container">
+  <form method="post">
 
-  ClassicEditor
-    .create( document.querySelector( '#content' ) )
-    .then( editor => {
-        console.log( editor );
-    } )
-    .catch( error => {
-        console.error( error );
-    } );
-    
-  </script>
-  
-  <br>
-  
-  <label for="url">URL:</label>
-  <input type="text" name="url" id="url">
-  
-  <br>
-  
-  <label for="date">Date:</label>
-  <input type="date" name="date" id="date">
-  
-  <br>
-  
-  <label for="type">Type:</label>
-  <?php
-  
-  $values = array( 'Website', 'Graphic Design' );
-  
-  echo '<select name="type" id="type">';
-  foreach( $values as $key => $value )
-  {
-    echo '<option value="'.$value.'"';
-    echo '>'.$value.'</option>';
-  }
-  echo '</select>';
-  
-  ?>
-  
-  <br>
-  
-  <input type="submit" value="Add Project">
-  
-</form>
+    <label class="form__label" for="title">Title:</label>
+    <input class="form__input" type="text" name="title" id="title">
 
-<p><a href="projects.php"><i class="fas fa-arrow-circle-left"></i> Return to Project List</a></p>
+    <br>
+
+    <label class="form__label" for="content">Content:</label>
+    <textarea class="form__textarea" type="text" name="content" id="content" rows="10"></textarea>
+
+    <script>
+      ClassicEditor
+        .create(document.querySelector('#content'))
+        .then(editor => {
+          console.log(editor);
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    </script>
+
+    <br>
+
+    <label class="form__label" for="url">URL:</label>
+    <input class="form__input" type="text" name="url" id="url">
+
+    <br>
+
+    <label class="form__label" for="date">Date:</label>
+    <input class="form__input" type="date" name="date" id="date">
+
+    <br>
+
+    <label class="form__label" for="type">Type:</label>
+
+    <select class="form__select" name="type" id="type">
+      <?php
+      $values = array('Website', 'Graphic Design');
+
+      foreach ($values as $key => $value) {
+        echo '<option value="' . $value . '"';
+        echo '>' . $value . '</option>';
+      }
+      ?>
+    </select>
+
+    <br>
+
+    <input class="form__button" type="submit" value="Add Project">
+
+  </form>
+</div>
+
+<div class="add">
+  <a href="projects.php"><i class="fas fa-arrow-circle-left"></i> Return to Project List</a>
+</div>
 
 
 <?php
 
-include( 'includes/footer.php' );
+include('includes/footer.php');
 
 ?>

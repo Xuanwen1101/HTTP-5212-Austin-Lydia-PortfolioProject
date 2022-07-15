@@ -98,9 +98,9 @@ include 'includes/wideimage/WideImage.php';
 
 ?>
 
-<h2>Edit Education</h2>
+<h2 class="title">Edit Photos</h2>
 
-<p>
+<p class="note-text">
   Note: For best results, photos should be approximately 800 x 800 pixels.
 </p>
 
@@ -113,23 +113,32 @@ include 'includes/wideimage/WideImage.php';
   $data = $img->resize( 200, 200, 'outside' )->crop( 'center', 'center', 200, 200 )->asString( 'jpg', 70 );
 
   ?>
-  <p><img src="data:image/jpg;base64,<?php echo base64_encode( $data ); ?>" width="200" height="200"></p>
-  <p><a href="educations_photo.php?id=<?php echo $_GET['id']; ?>&delete"><i class="fas fa-trash-alt"></i> Delete this Photo</a></p>
+
+  <div class="objects-container">
+    <img src="data:image/jpg;base64,<?php echo base64_encode( $data ); ?>" width="200" height="200">
+  </div>
+  <div class="delete-photo">
+    <a href="educations_photo.php?id=<?php echo $_GET['id']; ?>&delete"><i class="fas fa-trash-alt"></i> Delete this Photo</a>
+  </div>
 
 <?php endif; ?>
 
+<div class="objects-container">
 <form method="post" enctype="multipart/form-data">
   
-  <label for="photo">Photo:</label>
-  <input type="file" name="photo" id="photo">
+  <label class="form__label" for="photo">Photo:</label>
+  <input class="form__input" type="file" name="photo" id="photo">
   
   <br>
   
-  <input type="submit" value="Save Photo">
+  <input class="form__button" type="submit" value="Save Photo">
   
 </form>
+</div>
 
-<p><a href="educations.php"><i class="fas fa-arrow-circle-left"></i> Return to Education List</a></p>
+<div class="add">
+  <a href="educations.php"><i class="fas fa-arrow-circle-left"></i> Return to Education List</a>
+</div>
 
 
 <?php

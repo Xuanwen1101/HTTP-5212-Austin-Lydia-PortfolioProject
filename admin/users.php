@@ -28,7 +28,7 @@ $result = mysqli_query( $connect, $query );
 
 ?>
 <section class="users">
-<h2 class="users__title">Manage Users</h2>
+<h2 class="title">Manage Users</h2>
   <div class="users__container">
     <?php while( $record = mysqli_fetch_assoc( $result ) ): ?>
       <div class="users__card">

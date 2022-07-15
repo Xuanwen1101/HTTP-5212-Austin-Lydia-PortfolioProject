@@ -40,52 +40,46 @@ include( 'includes/header.php' );
 
 ?>
 
-<h2>Add User</h2>
+<section class="add_account">
+  <h2>Add Account</h2>
+  
+  <form method="post" class="form">
+    <div class="form__wrapper">
+      <label for="first" class="form__label">First Name</label>
+      <input type="text" name="first" id="first" class="form__input">
+    </div>
+    <div class="form__wrapper">
+      <label for="last" class="form__label">Last Name</label>
+      <input type="text" name="last" id="last" class="form__input">
+    </div>
+  
+    <div class="form__wrapper">
+      <label for="email" class="form__label">Email</label>
+      <input type="email" name="email" id="email" class="form__input">
+    </div>
+    <div class="form__wrapper">
+      <label for="password" class="form__label">Password</label>
+      <input type="password" name="password" id="password" class="form__input">
+    </div>
 
-<form method="post">
+    <div class="form__wrapper">
+      <label for="active" class="form__label">Active</label>
+      <?php
+      $values = array( 'Yes', 'No' );
+      echo '<select name="active" id="active" class="form__select">';
+      foreach( $values as $key => $value )
+      {
+        echo '<option value="'.$value.'"';
+        echo ' class="form__option">'.$value.'</option>';
+      }
+      echo '</select>';
+      ?>
+    </div>
   
-  <label for="first">First Name:</label>
-  <input type="text" name="first" id="first">
+    <input type="submit" value="Add User">
   
-  <br>
-  
-  <label for="last">Last Name:</label>
-  <input type="text" name="last" id="last">
-  
-  <br>
-  
-  <label for="email">Email:</label>
-  <input type="email" name="email" id="email">
-  
-  <br>
-  
-  <label for="password">Password:</label>
-  <input type="password" name="password" id="password">
-  
-  <br>
-  
-  <label for="active">Active:</label>
-  <?php
-  
-  $values = array( 'Yes', 'No' );
-  
-  echo '<select name="active" id="active">';
-  foreach( $values as $key => $value )
-  {
-    echo '<option value="'.$value.'"';
-    echo '>'.$value.'</option>';
-  }
-  echo '</select>';
-  
-  ?>
-  
-  <br>
-  
-  <input type="submit" value="Add User">
-  
-</form>
-
-<p><a href="users.php"><i class="fas fa-arrow-circle-left"></i> Return to User List</a></p>
+  </form>
+</section>
 
 
 <?php

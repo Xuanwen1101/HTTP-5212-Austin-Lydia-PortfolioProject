@@ -8,19 +8,12 @@
   $name = $_POST['name'];
   $message = $_POST['message'];
 
+  // insert the data into the database
+  $sql = "INSERT INTO messages (email, name, message) VALUES ('$email', '$name', '$message')";
 
-  // log the email
-  echo $email;
-  
-    $record = mysqli_fetch_assoc( $result );
-    
-    // send an email to the email inserted in the form
-    $to = $email;
-    $subject = 'Test Email';
-    $message = $name . '<br> Your message: ' . $message;
-    $headers = 'From: ' . $record['email'];
-
-    $headers .= "MIME-Version: 1.0\n";
-    $headers .= "Content-type: text/html; charset=us-ascii\n"; 
-
-    mail( $to, $subject, $message, $headers );
+  if (mysqli_query($connect, $sql)) {
+    echo "Message sent successfully!";
+  } else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($connect);
+  }
+?>

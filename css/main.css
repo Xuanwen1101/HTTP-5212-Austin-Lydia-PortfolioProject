@@ -12,9 +12,16 @@
   --upload-color: #03b8ce;
 }
 
+.hidden { display: none; }
+
 html {
   background-color: var(--background-color);
 }
+
+/* Start of Navigation */
+
+
+/* End of Navigation */
 
 /* Start of Dashboard */
 .dashboard__container {

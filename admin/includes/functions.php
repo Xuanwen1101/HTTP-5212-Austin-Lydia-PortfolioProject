@@ -65,7 +65,6 @@ function get_message()
   // if there was a previous page, get the url
   if( isset( $_SERVER['HTTP_REFERER'] ) )
   {
-    
     $previous_url = $_SERVER['HTTP_REFERER'];
     $previous_url = explode('/', $previous_url);
     $previous_url = end($previous_url);

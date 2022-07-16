@@ -21,31 +21,36 @@
   <?php if(isset($_SESSION['id'])): ?>
       <header class="header">
         <!-- create a back button to go back to the previous page using PHP-->
-        <a class="header__back" href="<?php echo $previous_url ?>.php" class="header__back">
-          <img src="../assets/icons/chevron-left.svg" alt="">
-          Back to <?php echo $previous_url; ?>
+        <a class="header__back" href="<?php echo $previous_url ?>.php">
+          <img src="../assets/icons/chevron-left.svg" alt="Back Arrow to go back to <?php echo $previous_url; ?>">
+          <span>Back to <?php echo $previous_url; ?></span>
         </a>
-        <script>
-          // if the url is not dashboard.php, then show the back button
-          if("<?php echo $url ?>" != "dashboard") {
-            document.querySelector('.header__back').style.display = 'block';
-          } else {
-            document.querySelector('.header__back').style.display = 'none';
-          }
-        </script>
-        <img src="../assets/icons/menu.svg" alt="">
+        <img class="nav__btn" src="../assets/icons/menu.svg" alt="">
         <nav class="header__nav">
           <ul class="nav__wrapper">
+            <li class="nav__close">X</li>
             <li class="nav__item"><a  href="users.php">Switch Accounts</a></li>
+            <li class="nav__line">|</li>
             <li class="nav__item"><a href="logout.php">Logout</a></li>
           </ul>
         </nav>
       </header>
   <?php endif; ?>
-  
-  <hr>
-  
+
   <?php echo get_message(); ?>
   
   <div>
+  <script>
+    // nav__btn on click toggle header__nav
+    document.querySelector('.nav__btn').addEventListener('click', function() {
+      document.querySelector('.header__nav').classList.toggle('nav__active');
+      document.querySelector("body").classList.toggle('no-scroll');
+    });
+
+    // nav__close on click toggle header__nav
+    document.querySelector('.nav__close').addEventListener('click', function() {
+      document.querySelector('.header__nav').classList.toggle('nav__active');
+      document.querySelector("body").classList.toggle('no-scroll');
+    });
+  </script>
   

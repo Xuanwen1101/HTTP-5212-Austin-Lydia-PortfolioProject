@@ -29,6 +29,8 @@
         <nav class="header__nav">
           <ul class="nav__wrapper">
             <li class="nav__close">X</li>
+            <li class="nav__item"><a  href="dashboard.php">Dashboard</a></li>
+            <li class="nav__line">|</li>
             <li class="nav__item"><a  href="users.php">Switch Accounts</a></li>
             <li class="nav__line">|</li>
             <li class="nav__item"><a href="logout.php">Logout</a></li>

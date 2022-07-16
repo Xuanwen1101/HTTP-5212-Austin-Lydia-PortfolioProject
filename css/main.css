@@ -510,7 +510,56 @@ html {
   max-width: 1600px;
   margin: 0 auto;
   display: flex;
+  flex-wrap: wrap;
+  gap: 38px;
+  justify-content: center;
+}
+
+.contact__card {
+  background-color: var(--card-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  padding: 1.4rem 1.5rem;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 400px;
+}
+
+.contact__text {
+  display: flex;
   flex-direction: column;
+  gap: 14px;
+}
+
+.contact__content h2 {
+  font-family: var(--heading-font);
+  color: var(--font-color-main);
+  font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+
+.contact__content h3, .contact__content p {
+  font-family: var(--body-font);
+  color: var(--font-color-main);
+  font-size: 15px;
+}
+
+.contact__content h3 {
+  font-size: 17px;
+}
+
+.contact__content p { line-height: 120%; }
+
+.contact__delete {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  font-family: var(--body-font);
+  color: var(--delete-color);
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 /* End of Contact */
@@ -591,6 +640,12 @@ html {
   .dashboard__link a { font-size: 28px; }
 
   .dashboard__user { font-size: 36px; }
+
+  .contact__wrapper {
+    gap: 45px;
+  }
+
+  .contact__card { width: 47%; }
 }
 
 @media screen and (min-width: 1280px) {

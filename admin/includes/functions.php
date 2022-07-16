@@ -47,11 +47,10 @@ function get_message()
   if( isset( $_SESSION['message'] ) )
   {
     
-    echo '<p style="padding: 0 1%;" class="error">
-        <i class="fas fa-exclamation-circle"></i> 
+    echo '<p style="padding: 0 1%;" class="title">
         '.$_SESSION['message'].'
       </p>
-      <hr>';
+      ';
     unset( $_SESSION['message'] );
     
   }

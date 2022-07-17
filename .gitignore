@@ -1,5 +1,5 @@
 .DS_Store
+admin/includes/PHPMailer-master/
 admin/includes/wideimage/
 admin/includes/database.php
 admin/users_add.php
-admin/includes/PHPMailer-master/

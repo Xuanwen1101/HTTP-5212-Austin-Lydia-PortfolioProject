@@ -26,7 +26,7 @@ include( 'admin/includes/functions.php' );
 <body>
 
   <h1>Welcome to My Website!</h1>
-  <p>This is the website frontend!</p>
+  <p>This is the website frontend, enjoy!</p>
 
   <?php
 

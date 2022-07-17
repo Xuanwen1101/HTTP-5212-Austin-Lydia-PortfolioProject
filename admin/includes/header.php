@@ -16,20 +16,43 @@
 </head>
 <body>
   
-  <h1>Website Admin</h1>
+  <h1 class="hidden">Website Admin</h1>
   
   <?php if(isset($_SESSION['id'])): ?>
-
-    <p>
-      <a href="dashboard.php">Dashboard</a> | 
-      <a href="logout.php">Logout</a>
-    </p>
-  
+      <header class="header">
+        <!-- create a back button to go back to the previous page using PHP-->
+        <a class="header__back" href="<?php echo $previous_url ?>.php">
+          <img src="../assets/icons/chevron-left.svg" alt="Back Arrow to go back to <?php echo $previous_url; ?>">
+          <span>Back to <?php echo $previous_url; ?></span>
+        </a>
+        <img class="nav__btn" src="../assets/icons/menu.svg" alt="">
+        <nav class="header__nav">
+          <ul class="nav__wrapper">
+            <li class="nav__close">X</li>
+            <li class="nav__item"><a  href="dashboard.php">Dashboard</a></li>
+            <li class="nav__line">|</li>
+            <li class="nav__item"><a  href="users.php">Switch Accounts</a></li>
+            <li class="nav__line">|</li>
+            <li class="nav__item"><a href="logout.php">Logout</a></li>
+          </ul>
+        </nav>
+      </header>
   <?php endif; ?>
-  
-  <hr>
-  
+
   <?php echo get_message(); ?>
   
   <div>
+  <script>
+    // nav__btn on click toggle header__nav
+    document.querySelector('.nav__btn').addEventListener('click', function() {
+      document.querySelector('.header__nav').classList.toggle('nav__active');
+      document.querySelector("body").classList.toggle('no-scroll');
+    });
+
+    // nav__close on click toggle header__nav
+    document.querySelector('.nav__close').addEventListener('click', function() {
+      document.querySelector('.header__nav').classList.toggle('nav__active');
+      document.querySelector("body").classList.toggle('no-scroll');
+    });
+  </script>
   

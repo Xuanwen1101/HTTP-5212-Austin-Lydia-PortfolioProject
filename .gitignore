@@ -2,3 +2,4 @@
 admin/includes/wideimage/
 admin/includes/database.php
 admin/users_add.php
+admin/PHPMailer-master/

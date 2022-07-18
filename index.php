@@ -11,7 +11,7 @@ include( 'admin/includes/functions.php' );
   
   <meta charset="UTF-8">
   <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Website Admin</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,7 +26,7 @@ include( 'admin/includes/functions.php' );
 <body>
 
   <h1>Welcome to My Website!</h1>
-  <p>This is the website frontend!</p>
+  <p>This is the website frontend, enjoy!</p>
 
   <?php
 

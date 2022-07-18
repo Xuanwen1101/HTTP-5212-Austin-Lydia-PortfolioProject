@@ -16,7 +16,7 @@ if( isset( $_GET['delete'] ) )
     
   set_message( 'content has been deleted' );
   
-  header( 'Location: skills.php' );
+  header( 'Location: emails.php' );
   die();
   
 }
@@ -34,11 +34,20 @@ $result = mysqli_query( $connect, $query );
     <?php while( $row = mysqli_fetch_assoc( $result ) ) : ?>
       <div class="contact__card">
         <div class="contact__text">
-          <h3><?php echo $row['name']; ?></h3>
-          <h3><?php echo $row['email']; ?></h3>
-          <p><?php echo $row['message']; ?></p>
+          <div class="contact__content contact__content--name">
+            <h2>Name:</h2>
+            <h3><?php echo $row['name']; ?></h3>
+          </div>
+          <div class="contact__content contact__content--email">
+            <h2>Email:</h2>
+            <h3><?php echo $row['email']; ?></h3>
+          </div>
+          <div class="contact__content contact__content--message">
+            <h2>Message:</h2>
+            <p><?php echo $row['message']; ?></p>
+          </div>
         </div>
-        <a href="contact.php?delete=<?php echo $row['id']; ?>">Delete</a>
+        <a class="contact__delete" href="emails.php?delete=<?php echo $row['id']; ?>">Delete</a>
       </div>
     <?php endwhile; ?>
   </div>

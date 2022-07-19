@@ -124,7 +124,7 @@ include 'includes/wideimage/WideImage.php';
 </form>
 </div>
 
-<div class="add">
+<div class="object__link">
   <a href="projects.php"><i class="fas fa-arrow-circle-left"></i> Return to Project List</a>
 </div>
 

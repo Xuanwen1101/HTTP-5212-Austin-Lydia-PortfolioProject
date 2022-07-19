@@ -79,7 +79,7 @@ include('includes/header.php');
   </form>
 </div>
 
-<div class="add">
+<div class="object__link">
   <a href="contents.php"><i class="fas fa-arrow-circle-left"></i> Return to Text Content List</a>
 </div>
 

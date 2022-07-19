@@ -30,14 +30,13 @@ $result = mysqli_query( $connect, $query );
 
 ?>
 
-<h2>Manage Work Experience</h2>
 
 <h2 class="title">Manage Work Experience</h2>
 
 
 <div class="objects-container">
 
-  <!-- use while loop to get each row data from the selected table -->
+  <!-- loop through the works content -->
   <?php while ($record = mysqli_fetch_assoc($result)) : ?>
 
     <div class="object-item">
@@ -80,7 +79,7 @@ $result = mysqli_query( $connect, $query );
 
 </div>
 
-<div class="add">
+<div class="object__link">
   <a href="works_add.php"><i class="fas fa-plus-square"></i> New Experience +</a>
 </div>
 

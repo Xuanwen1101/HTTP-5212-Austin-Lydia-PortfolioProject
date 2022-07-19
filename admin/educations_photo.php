@@ -123,7 +123,7 @@ include 'includes/wideimage/WideImage.php';
 </form>
 </div>
 
-<div class="add">
+<div class="object__link">
   <a href="educations.php"><i class="fas fa-arrow-circle-left"></i> Return to educations List</a>
 </div>
 

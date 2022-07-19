@@ -60,16 +60,34 @@ include('includes/header.php');
 <h2 class="title">Edit Experience</h2>
 
 <div class="objects-container">
-  <form method="post">
-
-    <label class="form__label" for="title">Title:</label>
-    <input class="form__input" type="text" name="title" id="title" value="<?php echo htmlentities($record['title']); ?>">
-
-    <br>
-
-    <label class="form__label" for="description">Description:</label>
-    <textarea class="form__textarea" type="text" name="description" id="description" rows="5"><?php echo htmlentities($record['description']); ?></textarea>
-
+  <form method="post" class="form">
+    <div class="form__field">
+      <label class="form__label" for="title">Title:</label>
+      <input class="form__input" type="text" name="title" id="title" value="<?php echo htmlentities($record['title']); ?>">
+    </div>
+    <div class="form__field">
+      <label class="form__label" for="employment_type">Employment Type:</label>
+      <input class="form__input" type="text" name="employment_type" id="employment_type" value="<?php echo htmlentities($record['employment_type']); ?>">
+    </div>
+    <div class="form__field">
+      <label class="form__label" for="company_name">Company Name:</label>
+      <input class="form__input" type="text" name="company_name" id="company_name" value="<?php echo htmlentities($record['company_name']); ?>">
+    </div>
+    <div class="form__field">
+      <label class="form__label" for="location">Location:</label>
+      <input class="form__input" type="text" name="location" id="location" value="<?php echo htmlentities($record['location']); ?>">
+    </div>
+    <div class="form__field">
+      <label class="form__label" for="start_date">Start Date:</label>
+      <input class="form__input" type="date" name="start_date" id="start_date" value="<?php echo htmlentities($record['start_date']); ?>">
+    </div>
+    <div class="form__field">
+      <label class="form__label" for="end_date">End Date:</label>
+      <input class="form__input" type="date" name="end_date" id="end_date" value="<?php echo htmlentities($record['end_date']); ?>">
+    </div>
+    <div class="form__field">
+      <label class="form__label" for="description">Description:</label>
+      <textarea class="form__textarea" type="text" name="description" id="description" rows="5"><?php echo htmlentities($record['description']); ?></textarea>
     <script>
       ClassicEditor
         .create(document.querySelector('#description'))
@@ -80,34 +98,7 @@ include('includes/header.php');
           console.error(error);
         });
     </script>
-
-    <br>
-
-    <label class="form__label" for="employment_type">Employment Type:</label>
-    <input class="form__input" type="text" name="employment_type" id="employment_type" value="<?php echo htmlentities($record['employment_type']); ?>">
-
-    <br>
-
-    <label class="form__label" for="company_name">Company Name:</label>
-    <input class="form__input" type="text" name="company_name" id="company_name" value="<?php echo htmlentities($record['company_name']); ?>">
-
-    <br>
-
-    <label class="form__label" for="location">Location:</label>
-    <input class="form__input" type="text" name="location" id="location" value="<?php echo htmlentities($record['location']); ?>">
-
-    <br>
-
-    <label class="form__label" for="start_date">Start Date:</label>
-    <input class="form__input" type="date" name="start_date" id="start_date" value="<?php echo htmlentities($record['start_date']); ?>">
-
-    <br>
-
-    <label class="form__label" for="end_date">End Date:</label>
-    <input class="form__input" type="date" name="end_date" id="end_date" value="<?php echo htmlentities($record['end_date']); ?>">
-
-    <br>
-
+    </div>
     <input class="form__button" type="submit" value="Edit Experience">
 
   </form>

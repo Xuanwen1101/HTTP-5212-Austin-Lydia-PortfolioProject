@@ -44,57 +44,46 @@ include('includes/header.php');
 
 <div class="objects-container">
 
-  <form method="post">
-
-    <label class="form__label" for="title">Title:</label>
-    <input class="form__input" type="text" name="title" id="title">
-
-    <br>
-
-    <label class="form__label" for="employment_type">Employment Type:</label>
-    <input class="form__input" type="text" name="employment_type" id="employment_type">
-
-    <br>
-
-    <label class="form__label" for="company_name">Company Name:</label>
-    <input class="form__input" type="text" name="company_name" id="company_name">
-
-    <br>
-
-    <label class="form__label" for="location">Location:</label>
-    <input class="form__input" type="text" name="location" id="location">
-
-    <br>
-
-    <label class="form__label" for="description">Description:</label>
-    <textarea class="form__textarea" type="text" name="description" id="description" rows="10"></textarea>
-
-    <script>
-      ClassicEditor
-        .create(document.querySelector('#description'))
-        .then(editor => {
-          console.log(editor);
-        })
-        .catch(error => {
-          console.error(error);
-        });
-    </script>
-
-    <br>
-
-    <label class="form__label" for="start_date">Start Date:</label>
-    <input class="form__input" type="date" name="start_date" id="start_date">
-
-    <br>
-
-    <label class="form__label" for="end_date">End Date:</label>
-    <input class="form__input" type="date" name="end_date" id="end_date">
-
-    <br>
-
-
+  <form method="post" class="field">
+    <div class="form__field">
+      <label class="form__label" for="title">Title:</label>
+      <input class="form__input" type="text" name="title" id="title">
+    </div>
+    <div class="form__field">
+      <label class="form__label" for="employment_type">Employment Type:</label>
+      <input class="form__input" type="text" name="employment_type" id="employment_type">
+    </div>
+    <div class="form__field">
+      <label class="form__label" for="company_name">Company Name:</label>
+      <input class="form__input" type="text" name="company_name" id="company_name">
+    </div>
+    <div class="form__field">
+      <label class="form__label" for="location">Location:</label>
+      <input class="form__input" type="text" name="location" id="location">
+    </div>
+    <div class="form__field">
+      <label class="form__label" for="start_date">Start Date:</label>
+      <input class="form__input" type="date" name="start_date" id="start_date">
+    </div>
+    <div class="form__field">
+      <label class="form__label" for="end_date">End Date:</label>
+      <input class="form__input" type="date" name="end_date" id="end_date">
+    </div>
+    <div class="form__field">
+      <label class="form__label" for="description">Description:</label>
+      <textarea class="form__textarea" type="text" name="description" id="description" rows="10"></textarea>
+      <script>
+        ClassicEditor
+          .create(document.querySelector('#description'))
+          .then(editor => {
+            console.log(editor);
+          })
+          .catch(error => {
+            console.error(error);
+          });
+      </script>
+    </div>
     <input class="form__button" type="submit" value="Add Experience">
-
   </form>
 </div>
 

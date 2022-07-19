@@ -114,15 +114,13 @@ include 'includes/wideimage/WideImage.php';
 <?php endif; ?>
 
 <div class="objects-container">
-<form method="post" enctype="multipart/form-data">
+<form method="post" enctype="multipart/form-data" class="form">
 
-  <label class="form__label" for="photo">Photo:</label>
-  <input class="form__input" type="file" name="photo" id="photo">
-
-  <br>
-
+  <div class="form__field">
+    <label class="form__label" for="photo">Photo:</label>
+    <input class="form__input" type="file" name="photo" id="photo">
+  </div>
   <input class="form__button" type="submit" value="Save Photo">
-
 </form>
 </div>
 

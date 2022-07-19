@@ -55,34 +55,28 @@ include('includes/header.php');
 <h2 class="title">Edit Content</h2>
 
 <div class="objects-container">
-  <form method="post">
+  <form method="post" class="form">
 
-    <label class="form__label" for="title">Title</label>
-    <input class="form__input" type="text" name="title" id="title" value="<?php echo htmlentities($record['title']); ?>">
-
-    <br>
-
-    <label class="form__label" for="content">Content</label>
-    <textarea class="form__textarea" type="text" name="content" id="content" rows="5"><?php echo htmlentities($record['content']); ?></textarea>
-
-    <script>
-      ClassicEditor
-        .create(document.querySelector('#content'))
-        .then(editor => {
-          console.log(editor);
-        })
-        .catch(error => {
-          console.error(error);
-        });
-    </script>
-
-    <br>
-
-
+    <div class="form__field">
+      <label class="form__label" for="title">Title</label>
+      <input class="form__input" type="text" name="title" id="title" value="<?php echo htmlentities($record['title']); ?>">
+    </div>
+    <div class="form__field">
+      <label class="form__label" for="content">Content</label>
+      <textarea class="form__textarea" type="text" name="content" id="content" rows="5"><?php echo htmlentities($record['content']); ?></textarea>
+      <script>
+        ClassicEditor
+          .create(document.querySelector('#content'))
+          .then(editor => {
+            console.log(editor);
+          })
+          .catch(error => {
+            console.error(error);
+          });
+      </script>
+    </div>
     <input class="form__button" type="submit" value="Edit Content">
-
   </form>
-
 </div>
 
 <div class="add">

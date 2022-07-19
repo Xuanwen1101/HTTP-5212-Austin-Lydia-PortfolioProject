@@ -77,49 +77,43 @@ include( 'includes/header.php' );
 
 <h2>Edit User</h2>
 
-<form method="post">
+<div class="objects-container">
+  <form method="post" class="form">
   
-  <label for="first">First:</label>
-  <input type="text" name="first" id="first" value="<?php echo htmlentities( $record['first'] ); ?>">
+    <div class="form__field">
+      <label for="first" class="form__label">First:</label>
+      <input type="text" class="form__input" name="first" id="first" value="<?php echo htmlentities( $record['first'] ); ?>">
+    </div>
+    <div class="form__field">
+      <label for="last" class="form__label">Last:</label>
+      <input type="text" class="form__input" name="last" id="last" value="<?php echo htmlentities( $record['last'] ); ?>">
+    </div>
+    <div class="form__field">
+      <label for="email" class="form__label">Email:</label>
+      <input type="email" class="form__input" name="email" id="email" value="<?php echo htmlentities( $record['email'] ); ?>">
+    </div>
+    <div class="form__field">
+      <label for="password" class="form__label">Password:</label>
+      <input type="password" class="form__input" name="password" id="password">
+    </div>
+    <div class="form__field">
+      <label for="active" class="form__label">Active:</label>
+      <?php
+      $values = array( 'Yes', 'No' );
+      echo '<select name="active" class="form__select" id="active">';
+      foreach( $values as $key => $value )
+      {
+        echo '<option value="'.$value.'"';
+        if( $value == $record['active'] ) echo ' selected="selected"';
+        echo '>'.$value.'</option>';
+      }
+      echo '</select>';
+      ?>
+    </div>
+    <input type="submit" class="form__button" value="Edit User">
   
-  <br>
-  
-  <label for="last">Last:</label>
-  <input type="text" name="last" id="last" value="<?php echo htmlentities( $record['last'] ); ?>">
-  
-  <br>
-  
-  <label for="email">Email:</label>
-  <input type="email" name="email" id="email" value="<?php echo htmlentities( $record['email'] ); ?>">
-  
-  <br>
-  
-  <label for="password">Password:</label>
-  <input type="password" name="password" id="password">
-  
-  <br>
-  
-  <label for="active">Active:</label>
-  <?php
-  
-  $values = array( 'Yes', 'No' );
-  
-  echo '<select name="active" id="active">';
-  foreach( $values as $key => $value )
-  {
-    echo '<option value="'.$value.'"';
-    if( $value == $record['active'] ) echo ' selected="selected"';
-    echo '>'.$value.'</option>';
-  }
-  echo '</select>';
-  
-  ?>
-  
-  <br>
-  
-  <input type="submit" value="Edit User">
-  
-</form>
+  </form>
+</div>
 
 <p><a href="users.php"><i class="fas fa-arrow-circle-left"></i> Return to User List</a></p>
 

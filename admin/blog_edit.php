@@ -54,34 +54,29 @@
   ?>
 
   <h2>Edit blog Content</h2>
-  <form action="blog_edit.php?id=<?php echo $_GET['id']; ?>" method="post" enctype="multipart/form-data">
-    <div>
-      <label for="title">Title:</label>
-      <input type="text" name="title" id="title" value="<?php echo $record['title']; ?>" />
-    </div>
-    <div>
-      <img src="<?php echo $record['photo'] ?>" alt="">
-      <label for="photo">photo:</label>
-      <input type="file" name="photo" id="photo"/>
-    </div>
-    <div>
-      <label for="content">Content:</label>
-      <textarea name="content" id="content" cols="30" rows="10"><?php echo $record['content']; ?></textarea>
-      <script>
-        ClassicEditor
-        .create( document.querySelector( '#content' ) )
-        .then( editor => {
-            console.log( editor );
-        } )
-        .catch( error => {
-            console.error( error );
-        } );
-      </script>
-    </div>
-    <div>
-      <input type="submit" name="submit" value="Update" />
-    </div>
-  </form>
+  <div class="objects-container">
+    <form action="blog_edit.php?id=<?php echo $_GET['id']; ?>" method="post" enctype="multipart/form-data" class="form">
+      <div class="form__field">
+        <label for="title" class="form__label">Title:</label>
+        <input type="text" class="form__input" name="title" id="title" value="<?php echo $record['title']; ?>" />
+      </div>
+      <div class="form__field">
+        <label for="content" class="form__label">Content:</label>
+        <textarea name="content" class="form__textarea" id="content" cols="30" rows="10"><?php echo $record['content']; ?></textarea>
+        <script>
+          ClassicEditor
+          .create( document.querySelector( '#content' ) )
+          .then( editor => {
+              console.log( editor );
+          } )
+          .catch( error => {
+              console.error( error );
+          } );
+        </script>
+      </div>
+        <input type="submit" class="form__button" name="submit" value="Update" />
+    </form>
+  </div>
   <?php
   include('includes/footer.php');
   ?>

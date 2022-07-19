@@ -39,14 +39,14 @@ include( 'includes/header.php' );
 <h2>Add New Skill</h2>
 
 <!-- form for uploading skills. containing title and content -->
-<form action="skills_add.php" method="post" enctype="multipart/form-data">
-  <div>
-    <label for="title">Title:</label>
-    <input type="text" name="title" id="title" />
+<form action="skills_add.php" class="form" method="post" enctype="multipart/form-data">
+  <div class="form__field">
+    <label for="title" class="form__label">Title:</label>
+    <input type="text" name="title" id="title" class="form__input" />
   </div>
-  <div>
-    <label for="content">Content:</label>
-    <textarea name="content" id="content" rows="10" cols="50"></textarea>
+  <div class="form__field">
+    <label for="content" class="form__label">Content:</label>
+    <textarea name="content" id="content" class="form__textarea" rows="10" cols="50"></textarea>
     <script>
       ClassicEditor
         .create( document.querySelector( '#content' ) )
@@ -58,9 +58,7 @@ include( 'includes/header.php' );
         } );
     </script>
   </div>
-  <div>
-    <input type="submit" name="submit" value="Add New Skill" />
-  </div>
+    <input type="submit" class="form__submit" name="submit" value="Add New Skill" />
 </form>
 
 <p><a href="skills.php"><i class="fas fa-arrow-circle-left"></i> Return to Skills</a></p>

@@ -38,29 +38,29 @@ include( 'includes/header.php' );
 <h2>Add blog Content</h2>
 
 <!-- form for uploading blog content. containing title and content -->
-<form action="blog_add.php" method="post" enctype="multipart/form-data">
-  <div>
-    <label for="title">Title:</label>
-    <input type="text" name="title" id="title" />
-  </div>
-  <div>
-    <label for="content">Content:</label>
-    <textarea name="content" id="content" rows="10" cols="50"></textarea>
-    <script>
-      ClassicEditor
-        .create( document.querySelector( '#content' ) )
-        .then( editor => {
-            console.log( editor );
-        } )
-        .catch( error => {
-            console.error( error );
-        } );
-    </script>
-  </div>
-  <div>
-    <input type="submit" name="submit" value="Add blog Content" />
-  </div>
-</form>
+<div class="objects-container">
+  <form action="blog_add.php" class="form" method="post" enctype="multipart/form-data">
+    <div class="form__field">
+      <label for="title" class="form__label">Title:</label>
+      <input type="text" name="title" id="title" class="form__input" />
+    </div>
+    <div class="form__field">
+      <label for="content" class="form__label">Content:</label>
+      <textarea name="content" id="content" class="form__textarea" rows="10" cols="50"></textarea>
+      <script>
+        ClassicEditor
+          .create( document.querySelector( '#content' ) )
+          .then( editor => {
+              console.log( editor );
+          } )
+          .catch( error => {
+              console.error( error );
+          } );
+      </script>
+    </div>
+      <input type="submit" name="submit" value="Add blog Content" class="form__button"/>
+  </form>
+</div>
 
 <p><a href="blog.php"><i class="fas fa-arrow-circle-left"></i> Return to blog Content</a></p>
 

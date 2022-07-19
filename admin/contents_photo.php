@@ -39,7 +39,7 @@ if (isset($_FILES['photo'])) {
     }
   }
 
-  set_message('Content photo has been updated');
+  set_message('contents photo has been updated');
 
   header('Location: contents.php');
   die();
@@ -56,7 +56,7 @@ if (isset($_GET['id'])) {
       LIMIT 1';
     $result = mysqli_query($connect, $query);
 
-    set_message('Content photo has been deleted');
+    set_message('contents photo has been deleted');
 
     header('Location: contents.php');
     die();
@@ -85,24 +85,25 @@ include 'includes/wideimage/WideImage.php';
 
 <h2 class="title">Edit Photos</h2>
 
-<!-- <img src="" id="imgPreview" alt="" width="200"> -->
+<!-- <img src="" id="imgPreview" alt=""> -->
 
 <p class="note-text">
   Note: For best results, photos should be approximately 800 x 800 pixels.
 </p>
 
-<br>
-
 <?php if ($record['photo']) : ?>
 
   <?php
+  // echo $record['photo'];
 
   $data = base64_decode(explode(',', $record['photo'])[1]);
-  $img = WideImage::loadFromString($data);
-  $data = $img->resize(200, 200, 'outside')->crop('center', 'center', 200, 200)->asString('jpg', 70);
+  // use WideImage to load the image from the data
+  $image = WideImage::loadFromString($data);
+  // resize the image to a square of 200x200 pixels
+  $image = $image->resize(200, 200, 'fill');
 
   ?>
-  
+
   <div class="objects-container">
     <img src="data:image/jpg;base64,<?php echo base64_encode($data); ?>" width="200" height="200">
   </div>
@@ -113,22 +114,17 @@ include 'includes/wideimage/WideImage.php';
 <?php endif; ?>
 
 <div class="objects-container">
-
-  <form method="post" enctype="multipart/form-data">
-
-    <label class="form__label" for="photo">Photo</label>
+<form method="post" enctype="multipart/form-data" class="form">
+  <div class="form__field">
+    <label class="form__label" for="photo">Photo:</label>
     <input class="form__input" type="file" name="photo" id="photo">
-
-    <br>
-
-    <input class="form__button" type="submit" value="Save Photo">
-
-  </form>
-
+  </div>
+  <input class="form__button" type="submit" value="Save Photo">
+</form>
 </div>
 
 <div class="add">
-  <a href="contents.php"><i class="fas fa-arrow-circle-left"></i> Return to Text Content List</a>
+  <a href="contents.php"><i class="fas fa-arrow-circle-left"></i> Return to contents List</a>
 </div>
 
 

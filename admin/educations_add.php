@@ -43,46 +43,36 @@ include('includes/header.php');
 <h2 class="title">Add Education</h2>
 
 <div class="objects-container">
-  <form method="post">
-
-    <label class="form__label" for="school">School:</label>
-    <input class="form__input" type="text" name="school" id="school">
-
-    <br>
-
-    <label class="form__label" for="school_url">School URL:</label>
-    <input class="form__input" type="text" name="school_url" id="school_url">
-
-    <br>
-
-    <label class="form__label" for="major">Major:</label>
-    <input class="form__input" type="text" name="major" id="major">
-
-    <br>
-
-    <label class="form__label" for="major_url">Major URL:</label>
-    <input class="form__input" type="text" name="major_url" id="major_url">
-
-    <br>
-
-    <label class="form__label" for="degree">Degree:</label>
-    <input class="form__input" type="text" name="degree" id="degree">
-
-    <br>
-
-    <label class="form__label" for="start_date">Start Date:</label>
-    <input class="form__input" type="date" name="start_date" id="start_date">
-
-    <br>
-
-    <label class="form__label" for="end_date">End Date:</label>
-    <input class="form__input" type="date" name="end_date" id="end_date">
-
-    <br>
-
-
+  <form method="post" class="form">
+    <div class="form__field">
+      <label class="form__label" for="school">School:</label>
+      <input class="form__input" type="text" name="school" id="school">
+    </div>
+    <div class="form__field">
+      <label class="form__label" for="school_url">School URL:</label>
+      <input class="form__input" type="text" name="school_url" id="school_url">
+    </div>
+    <div class="form__field">
+      <label class="form__label" for="major">Major:</label>
+      <input class="form__input" type="text" name="major" id="major">
+    </div>
+    <div class="form__field">
+      <label class="form__label" for="major_url">Major URL:</label>
+      <input class="form__input" type="text" name="major_url" id="major_url">
+    </div>
+    <div class="form__field">
+      <label class="form__label" for="degree">Degree:</label>
+      <input class="form__input" type="text" name="degree" id="degree">
+    </div>
+    <div class="form__field">
+      <label class="form__label" for="start_date">Start Date:</label>
+      <input class="form__input" type="date" name="start_date" id="start_date">
+    </div>
+    <div class="form__field">
+      <label class="form__label" for="end_date">End Date:</label>
+      <input class="form__input" type="date" name="end_date" id="end_date">
+    </div>
     <input class="form__button" type="submit" value="Add Education">
-
   </form>
 </div>
 

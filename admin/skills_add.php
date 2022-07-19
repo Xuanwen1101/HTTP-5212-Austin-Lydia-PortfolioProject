@@ -4,31 +4,27 @@ include( 'includes/database.php' );
 include( 'includes/config.php' );
 include( 'includes/functions.php' );
 
-secure();
 
 // Add new skill content using data from form
-if ( isset( $_POST['submit'] ) ) {
-  if (!empty( $_POST['title'] ) ) {
-    $title = $_POST['title'];
-    $content = $_POST['content'];
+secure();
 
-    // if no icon, set to null
-    $query = "INSERT INTO skills 
-      ( title, icon, content )
-      VALUES
-      ( '$title', NULL, '$content' )";
-      
-    $result = mysqli_query( $connect, $query );
-    if ( $result ) {
-      set_message( 'Skills have been added' );
-      header( 'Location: skills.php' );
-    } else {
-      echo '<div class="alert alert-danger">Error adding new skill!</div>';
-    }
-  } else {
-    echo '<div class="alert alert-danger">Please fill in the Content field!</div>';
+if (isset($_POST['title'])) {
+
+  if ($_POST['title']) {
+
+    $query = 'INSERT INTO skills (
+        title,
+        content
+      ) VALUES (
+         "' . mysqli_real_escape_string($connect, $_POST['title']) . '",
+         "' . mysqli_real_escape_string($connect, $_POST['content']) . '"
+      )';
+    mysqli_query($connect, $query);
+
+    set_message('Skills has been added');
   }
-  // Redirect to skills page
+
+  header('Location: skills.php');
   die();
 }
 
@@ -36,7 +32,7 @@ include( 'includes/header.php' );
 
 ?>
 
-<h2>Add New Skill</h2>
+<h2 class="title">Add New Skill</h2>
 
 <!-- form for uploading skills. containing title and content -->
 <form action="skills_add.php" class="form" method="post" enctype="multipart/form-data">
@@ -58,10 +54,12 @@ include( 'includes/header.php' );
         } );
     </script>
   </div>
-    <input type="submit" class="form__submit" name="submit" value="Add New Skill" />
+    <input type="submit" class="form__button" name="submit" value="Add New Skill" />
 </form>
 
-<p><a href="skills.php"><i class="fas fa-arrow-circle-left"></i> Return to Skills</a></p>
+<div class="object__link">
+  <a href="skills.php"><i class="fas fa-arrow-circle-left"></i> Return to Skills List </a>
+</div>
 
 
 <?php

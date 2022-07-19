@@ -15,16 +15,16 @@
   if( isset( $_POST['submit'] ) ) {
     if( !empty( $_POST['content'] ) ) {
       $title = $_POST['title'];
-      $icon = $_FILES['icon'];
+      $photo = $_FILES['photo'];
       $content = $_POST['content'];
 
-      // set the icon type
-      $type = $icon['type'];
+      // set the photo type
+      $type = $photo['type'];
       $type = explode( '/', $type );
       $type = $type[1];
 
-      // if no icon, update everything else
-      if( $icon['size'] == 0 ) {
+      // if no photo, update everything else
+      if( $photo['size'] == 0 ) {
         $query = "UPDATE skills 
         SET title = '$title',
         content = '$content'
@@ -33,7 +33,7 @@
       } else {
         $query = "UPDATE skills 
         SET title = '$title',
-        icon = 'data:icon/$type;base64,".base64_encode( file_get_contents( $icon['tmp_name'] ) )."',
+        photo = 'data:photo/$type;base64,".base64_encode( file_get_contents( $photo['tmp_name'] ) )."',
         content = '$content'
         WHERE id = ".$_GET['id']."
         LIMIT 1";
@@ -69,7 +69,7 @@
 
   ?>
 
-  <h2>Edit skills Content</h2>
+  <h2 class="title">Edit skills Content</h2>
   <div class="objects-container">
     <form action="skills_edit.php?id=<?php echo $_GET['id']; ?>" method="post" enctype="multipart/form-data" class="form">
       <div class="form__field">
@@ -93,6 +93,11 @@
         <input type="submit" class="form__button" name="submit" value="Update" />
     </form>
   </div>
+
+<div class="object__link">
+  <a href="skills.php"><i class="fas fa-arrow-circle-left"></i> Return to Skills List </a>
+</div>
+
   <?php
   include('includes/footer.php');
   ?>

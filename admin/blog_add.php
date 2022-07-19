@@ -12,7 +12,7 @@ if ( isset( $_POST['submit'] ) ) {
     $title = $_POST['title'];
     $content = $_POST['content'];
 
-    $query = "INSERT INTO blog 
+    $query = "INSERT INTO blogs 
       ( title, photo, content )
       VALUES
       ( '$title', NULL, '$content' )";
@@ -62,7 +62,9 @@ include( 'includes/header.php' );
   </form>
 </div>
 
-<p><a href="blog.php"><i class="fas fa-arrow-circle-left"></i> Return to blog Content</a></p>
+<div class="object__link">
+  <a href="blog.php"><i class="fas fa-arrow-circle-left"></i> Return to blog Content</a>
+</div>
 
 
 <?php

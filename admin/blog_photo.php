@@ -31,7 +31,7 @@ if (isset($_FILES['photo'])) {
           break;
       }
 
-      $query = 'UPDATE blog SET
+      $query = 'UPDATE blogs SET
         photo = "data:image/' . $type . ';base64,' . base64_encode(file_get_contents($_FILES['photo']['tmp_name'])) . '"
         WHERE id = ' . $_GET['id'] . '
         LIMIT 1';
@@ -39,7 +39,7 @@ if (isset($_FILES['photo'])) {
     }
   }
 
-  set_message('Blog photo has been updated');
+  set_message('Contents photo has been updated');
 
   header('Location: blog.php');
   die();
@@ -50,20 +50,20 @@ if (isset($_GET['id'])) {
 
   if (isset($_GET['delete'])) {
 
-    $query = 'UPDATE blog SET
+    $query = 'UPDATE blogs SET
       photo = ""
       WHERE id = ' . $_GET['id'] . '
       LIMIT 1';
     $result = mysqli_query($connect, $query);
 
-    set_message('blog photo has been deleted');
+    set_message('Contents photo has been deleted');
 
     header('Location: blog.php');
     die();
   }
 
   $query = 'SELECT *
-    FROM blog
+    FROM blogs
     WHERE id = ' . $_GET['id'] . '
     LIMIT 1';
   $result = mysqli_query($connect, $query);
@@ -108,7 +108,7 @@ include 'includes/wideimage/WideImage.php';
     <img src="data:image/jpg;base64,<?php echo base64_encode($data); ?>" width="200" height="200">
   </div>
   <div class="delete-photo">
-    <a href="blog_photo.php?id=<?php echo $_GET['id']; ?>&delete"><i class="fas fa-trash-alt"></i> Delete this Photo</a>
+    <a href="blogs_photo.php?id=<?php echo $_GET['id']; ?>&delete"><i class="fas fa-trash-alt"></i> Delete this Photo</a>
   </div>
 
 <?php endif; ?>
@@ -123,8 +123,8 @@ include 'includes/wideimage/WideImage.php';
 </form>
 </div>
 
-<div class="add">
-  <a href="blog.php"><i class="fas fa-arrow-circle-left"></i> Return to blog List</a>
+<div class="object__link">
+  <a href="blog.php"><i class="fas fa-arrow-circle-left"></i> Return to blog Content</a>
 </div>
 
 

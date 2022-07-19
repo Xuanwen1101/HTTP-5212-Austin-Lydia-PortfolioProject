@@ -9,12 +9,12 @@ secure();
 if( isset( $_GET['delete'] ) )
 {
   
-  $query = 'DELETE FROM blog
+  $query = 'DELETE FROM blogs
     WHERE id = '.$_GET['delete'].'
     LIMIT 1';
   mysqli_query( $connect, $query );
     
-  set_message( 'content has been deleted' );
+  set_message( 'Content has been deleted' );
   
   header( 'Location: blog.php' );
   die();
@@ -23,29 +23,57 @@ if( isset( $_GET['delete'] ) )
 
 include( 'includes/header.php' );
 
-$query = 'SELECT * FROM blog';
+$query = 'SELECT *
+  FROM blogs
+  ORDER BY title DESC';
 $result = mysqli_query( $connect, $query );
+
 ?>
 
-<h2>Manage blog Content</h2>
 
-<div>
-  <!-- loop through the blog content -->
-  <?php while( $row = mysqli_fetch_assoc( $result ) ) : ?>
-    <div>
-      <h3><?php echo $row['title']; ?></h3>
-      <img src="<?php echo $row['photo']; ?>" alt="<?php echo $row['title']; ?>" />
-      <p><?php echo $row['content']; ?></p>
-      <div>
-        <a href="blog_photo.php?id=<?php echo $row['id']; ?>">Photo</a>
-        <a href="blog_edit.php?id=<?php echo $row['id']; ?>">Edit</a>
-        <a href="blog.php?delete=<?php echo $row['id']; ?>">Delete</a>
+<h2 class="title">Manage Blog Contents</h2>
+
+<div class="objects-container">
+
+  <!-- loop through the blogs content -->
+  <?php while ($record = mysqli_fetch_assoc($result)) : ?>
+
+    <div class="object-item">
+
+
+      <?php if ($record['id']) : ?>
+
+        <img src="image.php?type=blog&id=<?php echo $record['id']; ?>&width=250&height=250">
+
+      <?php endif; ?>
+
+      <?php if ($record['title']) : ?>
+
+        <h2 class="object-title"><?= $record['title'] ?></h2>
+
+      <?php endif; ?>
+
+
+      <div id="object-edit">
+
+        <ul class="edit__list">
+          <li class="edit__link"><a href="blog_photo.php?id=<?php echo $record['id']; ?>">Photo</i></a>
+          </li>
+          <li class="edit__link"><a href="blog_edit.php?id=<?php echo $record['id']; ?>">Edit</i></a>
+          </li>
+          <li class="delete__link"><a href="blog.php?delete=<?php echo $record['id']; ?>" onclick="javascript:confirm('Are you sure you want to delete this blog?');">Delete</i></a></li>
+        </ul>
       </div>
+
     </div>
+
   <?php endwhile; ?>
+
 </div>
 
-<p><a href="blog_add.php"><i class="fas fa-plus-square"></i> Add blog Content</a></p>
+<div class="object__link">
+  <a href="blog_add.php"><i class="fas fa-plus-square"></i> New Blog +</a>
+</div>
 
 
 <?php

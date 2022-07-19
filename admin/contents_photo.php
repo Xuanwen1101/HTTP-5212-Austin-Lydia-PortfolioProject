@@ -39,7 +39,7 @@ if (isset($_FILES['photo'])) {
     }
   }
 
-  set_message('contents photo has been updated');
+  set_message('Contents photo has been updated');
 
   header('Location: contents.php');
   die();
@@ -56,7 +56,7 @@ if (isset($_GET['id'])) {
       LIMIT 1';
     $result = mysqli_query($connect, $query);
 
-    set_message('contents photo has been deleted');
+    set_message('Contents photo has been deleted');
 
     header('Location: contents.php');
     die();
@@ -123,7 +123,7 @@ include 'includes/wideimage/WideImage.php';
 </form>
 </div>
 
-<div class="add">
+<div class="object__link">
   <a href="contents.php"><i class="fas fa-arrow-circle-left"></i> Return to contents List</a>
 </div>
 

@@ -70,7 +70,7 @@ switch ($_GET['type']) {
     case 'blog':
 
       $query = 'SELECT photo 
-            FROM blog
+            FROM blogs
             WHERE id = ' . $_GET['id'] . '
             LIMIT 1';
       $result = mysqli_query($connect, $query);

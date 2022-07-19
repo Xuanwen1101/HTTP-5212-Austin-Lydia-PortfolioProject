@@ -45,7 +45,7 @@ $result = mysqli_query( $connect, $query );
     <?php endwhile; ?>
   </div>
   <div class="users__add">
-    <a href="users_add.php">Add User</a>
+    <a href="users_add.php">Add User +</a>
   </div>
 </section>
 

@@ -33,7 +33,7 @@ $result = mysqli_query($connect, $query);
 
 <div class="objects-container">
 
-  <!-- use while loop to get each row data from the selected table -->
+  <!-- loop through the educations content -->
   <?php while ($record = mysqli_fetch_assoc($result)) : ?>
 
     <div class="object-item">
@@ -76,7 +76,7 @@ $result = mysqli_query($connect, $query);
 
 </div>
 
-<div class="add">
+<div class="object__link">
   <a href="educations_add.php"><i class="fas fa-plus-square"></i> New Education +</a>
 </div>
 

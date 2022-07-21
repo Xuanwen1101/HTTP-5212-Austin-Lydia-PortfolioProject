@@ -105,7 +105,7 @@ include 'includes/wideimage/WideImage.php';
   ?>
 
   <div class="objects-container">
-    <img src="data:image/jpg;base64,<?php echo base64_encode($data); ?>" width="200" height="200">
+    <img src="data:image/jpg;base64,<?php echo base64_encode($data); ?>" width="200" height="200" alt="Current Education Image">
   </div>
   <div class="delete-photo">
     <a href="educations_photo.php?id=<?php echo $_GET['id']; ?>&delete"><i class="fas fa-trash-alt"></i> Delete this Photo</a>

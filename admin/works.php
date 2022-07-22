@@ -50,13 +50,13 @@ $result = mysqli_query( $connect, $query );
 
       <?php if ($record['company_name']) : ?>
 
-        <h2 class="object-title"><?= $record['company_name'] ?></h2>
+        <h3 class="object-title"><?= $record['company_name'] ?></h3>
 
       <?php endif; ?>
 
       <?php if ($record['title']) : ?>
 
-        <h2 class="secondary-title"><?= $record['title'] ?></h2>
+        <h4 class="secondary-title"><?= $record['title'] ?></h4>
 
       <?php endif; ?>
 

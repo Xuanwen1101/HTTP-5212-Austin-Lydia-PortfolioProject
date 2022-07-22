@@ -42,7 +42,7 @@ $result = mysqli_query($connect, $query);
 
       <?php if ($record['title']) : ?>
 
-        <h2 class="object-title"><?= $record['title'] ?></h2>
+        <h3 class="object-title"><?= $record['title'] ?></h3>
 
       <?php endif; ?>
 

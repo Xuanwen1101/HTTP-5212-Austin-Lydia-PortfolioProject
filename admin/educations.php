@@ -47,13 +47,13 @@ $result = mysqli_query($connect, $query);
 
       <?php if ($record['school']) : ?>
 
-        <h2 class="object-title"><?= $record['school'] ?></h2>
+        <h3 class="object-title"><?= $record['school'] ?></h3>
 
       <?php endif; ?>
 
       <?php if ($record['degree']) : ?>
 
-        <h2 class="secondary-title"><?= $record['degree'] ?></h2>
+        <h4 class="secondary-title"><?= $record['degree'] ?></h4>
 
       <?php endif; ?>
 

@@ -34,8 +34,8 @@ $result = mysqli_query( $connect, $query );
       <div class="users__card">
         <div class="users__text">
           <span class="users__id">ID: <?php echo $record['id'] ?></span>
-          <h2 class="users__name"><?php echo $record['first'] . ' ' . $record['last'] ?></h2>
-          <h3 class="users__email"><?php echo $record['email'] ?></h3>
+          <h3 class="users__name"><?php echo $record['first'] . ' ' . $record['last'] ?></h3>
+          <h4 class="users__email"><?php echo $record['email'] ?></h4>
         </div>
         <div class="users__functions">
           <a href="users_edit.php?id=<?php echo $record['id'] ?>">Edit</a>

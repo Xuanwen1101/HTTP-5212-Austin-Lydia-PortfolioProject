@@ -216,7 +216,7 @@ html {
   font-family: var(--heading-font);
   font-weight: bold;
   font-size: 24px;
-  margin-top: 40px;
+  margin: 50px;
 }
 
 .users__add a { 

@@ -41,7 +41,7 @@ include( 'includes/header.php' );
 ?>
 
 <section class="add_account">
-  <h2>Add Account</h2>
+  <h2 class="title">Add Account</h2>
   
   <div class="objects-container">
     <form method="post" class="form">

@@ -5,54 +5,62 @@ include('includes/functions.php');
 
 secure();
 
-if (!isset($_GET['id'])) {
-
-  header('Location: blog.php');
+if( !isset( $_GET['id'] ) )
+{
+  
+  header( 'Location: blog.php' );
   die();
+  
 }
 
-if (isset($_POST['submit'])) {
-  if (!empty($_POST['content'])) {
-    $title = $_POST['title'];
-    $content = $_POST['content'];
-
-    $query = "UPDATE blogs 
-        SET title = '$title',
-        content = '$content'
-        WHERE id = " . $_GET['id'] . "
-        LIMIT 1";
-
-    $result = mysqli_query($connect, $query);
-    if ($result) {
-      set_message('blog content has been updated');
-      header('Location: blog.php');
-    } else {
-      set_message("Error updating blog content!");
-    }
-  } else {
-    set_message("Please fill in the Content field!");
-  }
-  // Redirect to blog page
-  die();
-}
-
-if (isset($_GET['id'])) {
-  // Get the blog content from the database
-  $query = 'SELECT *
-      FROM blogs
-      WHERE id = ' . $_GET['id'] . '
+if( isset( $_POST['title'] ) )
+{
+  
+  if( $_POST['title'] and $_POST['content'] )
+  {
+    
+    $query = 'UPDATE blogs SET
+      title = "'.mysqli_real_escape_string( $connect, $_POST['title'] ).'",
+      content = "'.mysqli_real_escape_string( $connect, $_POST['content'] ).'"
+      WHERE id = '.$_GET['id'].'
       LIMIT 1';
+    mysqli_query( $connect, $query );
+    
+    set_message( 'blog has been updated' );
+    
+  }
 
-  $result = mysqli_query($connect, $query);
-
-  $record = mysqli_fetch_assoc($result);
+  header( 'Location: blog.php' );
+  die();
+  
 }
 
+
+if( isset( $_GET['id'] ) )
+{
+  
+  $query = 'SELECT *
+    FROM blogs
+    WHERE id = '.$_GET['id'].'
+    LIMIT 1';
+  $result = mysqli_query( $connect, $query );
+  
+  if( !mysqli_num_rows( $result ) )
+  {
+    
+    header( 'Location: blog.php' );
+    die();
+    
+  }
+  
+  $record = mysqli_fetch_assoc( $result );
+  
+}
 include('includes/header.php');
 
 ?>
 
-<h2>Edit blog Content</h2>
+<h2 class="title">Edit blog Content</h2>
 <div class="objects-container">
   <form action="blog_edit.php?id=<?php echo $_GET['id']; ?>" method="post" enctype="multipart/form-data" class="form">
     <div class="form__field">

@@ -35,7 +35,7 @@ include( 'includes/header.php' );
 
 ?>
 
-<h2>Add blog Content</h2>
+<h2 class="title">Add blog Content</h2>
 
 <!-- form for uploading blog content. containing title and content -->
 <div class="objects-container">

@@ -75,7 +75,7 @@ include( 'includes/header.php' );
 
 ?>
 
-<h2>Edit User</h2>
+<h2 class="title">Edit User</h2>
 
 <div class="objects-container">
   <form method="post" class="form">

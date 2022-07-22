@@ -43,7 +43,7 @@ $result = mysqli_query( $connect, $query );
 
       <?php if ($record['id']) : ?>
 
-        <img src="image.php?type=content&id=<?php echo $record['id']; ?>&width=250&height=250">
+        <img src="image.php?type=content&id=<?php echo $record['id']; ?>&width=250&height=250" alt="Image for the content <?php echo $record['title']?>">
 
       <?php endif; ?>
 
